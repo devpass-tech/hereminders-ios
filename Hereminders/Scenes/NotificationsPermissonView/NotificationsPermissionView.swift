@@ -12,11 +12,11 @@ import UIKit
 class NotificationsPermissionView: UIView, ViewProtocol {
 
     // MARK: - UIElements
+    
     private let stackView: UIStackView = {
         let stack = UIStackView(frame: .zero)
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
-        stack.distribution = .fillProportionally
         stack.spacing = 16
         stack.alignment = .center
         stack.backgroundColor = .white
@@ -73,6 +73,7 @@ class NotificationsPermissionView: UIView, ViewProtocol {
     }
     
     // MARK: - Functions
+    
     func configureSubviews() {
         addSubview(stackView)
         stackView.addArrangedSubview(iconImageView)
@@ -80,22 +81,19 @@ class NotificationsPermissionView: UIView, ViewProtocol {
         stackView.addArrangedSubview(subtitleLabel)
         stackView.addArrangedSubview(addNewPlaceButton)
         
-        stackView.backgroundColor = .white
+        self.backgroundColor = .white
     }
     
     func configureConstraints() {
         NSLayoutConstraint.activate([
-            // StackView
-            stackView.topAnchor.constraint(equalTo: topAnchor),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: centerYAnchor),
             
-            // IconImageView
             iconImageView.heightAnchor.constraint(equalToConstant: 50),
             iconImageView.widthAnchor.constraint(equalToConstant: 50),
             
-            // AddNewPlaceButton
             addNewPlaceButton.widthAnchor.constraint(equalToConstant: 343),
             addNewPlaceButton.heightAnchor.constraint(equalToConstant: 44)
         ])
