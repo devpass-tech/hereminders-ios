@@ -54,6 +54,7 @@ internal enum Asset {
   }
   internal static let avatar = ImageAsset(name: "avatar")
   internal static let iconCross = ImageAsset(name: "icon_cross")
+  internal static let iconPin = ImageAsset(name: "icon_pin")
   internal static let iconSettings = ImageAsset(name: "icon_settings")
   internal static let imgLogo = ImageAsset(name: "img_logo")
   internal static let noImage = ImageAsset(name: "no-image")
@@ -70,6 +71,7 @@ internal enum Asset {
     ContributorsImages.saraFelix,
     avatar,
     iconCross,
+    iconPin,
     iconSettings,
     imgLogo,
     noImage,

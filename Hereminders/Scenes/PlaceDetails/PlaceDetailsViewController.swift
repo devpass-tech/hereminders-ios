@@ -59,7 +59,8 @@ final class PlaceDetailsViewController: UIViewController {
     private func configureMapLocationView() {
 
         let viewModel = MapLocationViewModel(coordinate: self.place.coordinate, title: self.place.name)
-        self.mapLocationView.configure(with: viewModel)
+       // self.mapLocationView.configure(with: viewModel)
+        self.mapLocationView.addCustomPin(with: viewModel)
     }
 }
 
