@@ -9,17 +9,6 @@
 import UIKit
 import MapKit
 
-class MapPin: NSObject, MKAnnotation {
-   let title: String?
-   let locationName: String
-   let coordinate: CLLocationCoordinate2D
-init(title: String, locationName: String, coordinate: CLLocationCoordinate2D) {
-      self.title = title
-      self.locationName = locationName
-      self.coordinate = coordinate
-   }
-}
-
 final class MapLocationView: UIView {
     
     private var mapView: MKMapView = {
@@ -52,13 +41,13 @@ final class MapLocationView: UIView {
         self.mapView.addAnnotation(pin)
     }
     
-    public func addCustomPin(with viewModel: MapLocationViewModel) {
+    public func configureWithCustomPin(with viewModel: MapLocationViewModel) {
         let region = MKCoordinateRegion(center: viewModel.coordinate, span: .default)
         self.mapView.setRegion(region, animated: true)
         
         self.mapView.delegate = self
         
-        let pin = MapPin(title: viewModel.title, locationName: "", coordinate: viewModel.coordinate)
+        let pin = CustomAnnotation(title: viewModel.title, coordinate: viewModel.coordinate)
         self.mapView.addAnnotation(pin)
     }
 }
@@ -88,14 +77,15 @@ extension MapLocationView : MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         let identifier = "customPin"
-        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) ?? MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+            ?? MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
         
         annotationView.canShowCallout = true
         if annotation is MKUserLocation {
             return nil
-        } else if annotation is MapPin {
+        } else if annotation is CustomAnnotation {
             annotationView.image = Asset.iconPin.image
-            annotationView.contentMode = .scaleAspectFit
+            annotationView.contentMode = .scaleToFill
             return annotationView
         } else {
             return nil

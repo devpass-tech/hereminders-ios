@@ -15,6 +15,7 @@
 		1349ADC126C5411100981469 /* UnitTestStructPlaceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1349ADC026C5411100981469 /* UnitTestStructPlaceResult.swift */; };
 		13DB8EFD26D42AF000CB86EA /* DividerViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DB8EFC26D42AF000CB86EA /* DividerViewSnapshotTests.swift */; };
 		494B8DFE8651D81614F0892D /* Pods_HeremindersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D88789351E1BF3D95B871DD /* Pods_HeremindersTests.framework */; };
+		70559E7F26FBF6F1004BA443 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70559E7E26FBF6F1004BA443 /* CustomAnnotation.swift */; };
 		71BDEEA626F266C7009BCB38 /* NotificationsPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDEEA526F266C7009BCB38 /* NotificationsPermissionView.swift */; };
 		71BDEEA826F26DA3009BCB38 /* NotificationsPermissonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDEEA726F26DA3009BCB38 /* NotificationsPermissonViewModel.swift */; };
 		71BDEEAE26F2C9CD009BCB38 /* NotificationsPermissionVcSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDEEAD26F2C9CD009BCB38 /* NotificationsPermissionVcSnapshotTests.swift */; };
@@ -204,6 +205,7 @@
 		1349ADC026C5411100981469 /* UnitTestStructPlaceResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestStructPlaceResult.swift; sourceTree = "<group>"; };
 		13DB8EFC26D42AF000CB86EA /* DividerViewSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DividerViewSnapshotTests.swift; sourceTree = "<group>"; };
 		150D92276C2DFA070189FDC0 /* Pods_Hereminders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hereminders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		70559E7E26FBF6F1004BA443 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		71BDEEA526F266C7009BCB38 /* NotificationsPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPermissionView.swift; sourceTree = "<group>"; };
 		71BDEEA726F26DA3009BCB38 /* NotificationsPermissonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPermissonViewModel.swift; sourceTree = "<group>"; };
 		71BDEEAD26F2C9CD009BCB38 /* NotificationsPermissionVcSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPermissionVcSnapshotTests.swift; sourceTree = "<group>"; };
@@ -851,6 +853,7 @@
 				98DD308F2068373E00AA7E75 /* PlaceAnnotation.swift */,
 				98DCD2BA20E5B52200A49897 /* Annotation.swift */,
 				989BAB0820F41D7800C82DF7 /* Button.swift */,
+				70559E7E26FBF6F1004BA443 /* CustomAnnotation.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1357,6 +1360,7 @@
 				BC02947626D913F60030F589 /* WelcomeView.swift in Sources */,
 				983341CB20DC561B006011CF /* PlaceSearchCoordinator.swift in Sources */,
 				9890C171206C4B16003C6F8D /* HomeCoordinator.swift in Sources */,
+				70559E7F26FBF6F1004BA443 /* CustomAnnotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
