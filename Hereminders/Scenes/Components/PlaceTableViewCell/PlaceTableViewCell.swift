@@ -21,12 +21,12 @@ class PlaceTableViewCell : UITableViewCell {
     private lazy var dividerView: DividerView = {
         let dividerView = DividerView()
         dividerView.translatesAutoresizingMaskIntoConstraints = false
-        dividerView.backgroundColor = .red
         return dividerView
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.accessoryType = .disclosureIndicator
         self.configureView()
                 
     }
@@ -37,8 +37,6 @@ class PlaceTableViewCell : UITableViewCell {
     
     func configure(with viewModel: PlaceTableViewCellViewModel) {
         titleSubtitleView.configure(with: viewModel.titleSubtitleViewVM)
-        self.accessoryType = .disclosureIndicator
-        
     }
 }
 
@@ -62,4 +60,3 @@ extension PlaceTableViewCell: ViewProtocol {
         ])
     }
 }
-
