@@ -39,6 +39,15 @@ final class MapLocationView: UIView {
         let pin = Annotation(title: viewModel.title, coordinate: viewModel.coordinate)
         self.mapView.addAnnotation(pin)
     }
+    
+    private func configureCustomPin() -> UIImage {
+        let customPin =  Asset.iconPin.image
+        let size = CGSize(width: 50, height: 50)
+        UIGraphicsBeginImageContext(size)
+        customPin.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
+        return resizedImage
+    }
 }
 
 // MARK: - Extension ViewProtocol
@@ -72,12 +81,7 @@ extension MapLocationView : MKMapViewDelegate {
         if annotation is MKUserLocation {
             return nil
         } else if annotation is Annotation {
-            let customPin =  Asset.iconPin.image
-            let size = CGSize(width: 50, height: 50)
-            UIGraphicsBeginImageContext(size)
-            customPin.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-            let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
-            annotationView.image = resizedImage
+            annotationView.image = configureCustomPin()
             return annotationView
         } else {
             return nil

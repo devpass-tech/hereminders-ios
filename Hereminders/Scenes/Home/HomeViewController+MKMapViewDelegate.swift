@@ -47,7 +47,7 @@ extension HomeViewController: MKMapViewDelegate {
         annotationView.canShowCallout = true
         if annotation is MKUserLocation {
             return nil
-        } else if annotation is Annotation {
+        } else if annotation is PlaceAnnotation {
             annotationView.image = configureCustomPin()
             return annotationView
         } else {
