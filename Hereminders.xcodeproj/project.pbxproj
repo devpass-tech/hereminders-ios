@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		052DD4E126FA03850072E4C1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052DD4E026FA03850072E4C1 /* SettingsView.swift */; };
 		052DD4E426FBD8C50072E4C1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052DD4E326FBD8C50072E4C1 /* HomeView.swift */; };
-		052DD4E626FBDA660072E4C1 /* HomeContentViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052DD4E526FBDA660072E4C1 /* HomeContentViewSnapshotTests.swift */; };
 		053A6D1A26F158670048388C /* PlaceSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053A6D1926F158670048388C /* PlaceSearchTableViewCell.swift */; };
 		053A6D1C26F1588D0048388C /* PlaceSearchTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053A6D1B26F1588D0048388C /* PlaceSearchTableViewCellViewModel.swift */; };
 		059A0AEB26F55153003351DB /* SettingsViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059A0AEA26F55153003351DB /* SettingsViewSnapshotTests.swift */; };
@@ -202,7 +201,6 @@
 /* Begin PBXFileReference section */
 		052DD4E026FA03850072E4C1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		052DD4E326FBD8C50072E4C1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		052DD4E526FBDA660072E4C1 /* HomeContentViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentViewSnapshotTests.swift; sourceTree = "<group>"; };
 		053A6D1926F158670048388C /* PlaceSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchTableViewCell.swift; sourceTree = "<group>"; };
 		053A6D1B26F1588D0048388C /* PlaceSearchTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		059A0AEA26F55153003351DB /* SettingsViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewSnapshotTests.swift; sourceTree = "<group>"; };
@@ -683,7 +681,6 @@
 				71BDEEAD26F2C9CD009BCB38 /* NotificationsPermissionVcSnapshotTests.swift */,
 				05A4706026F2053500F8CA0F /* PlaceSearchTableViewCellSnapshotTests.swift */,
 				059A0AEA26F55153003351DB /* SettingsViewSnapshotTests.swift */,
-				052DD4E526FBDA660072E4C1 /* HomeContentViewSnapshotTests.swift */,
 			);
 			path = SnapshotTests;
 			sourceTree = "<group>";
@@ -1399,7 +1396,6 @@
 				ED1D082026C5BD74001CA0EE /* AnnotationUnitTest.swift in Sources */,
 				71BDEEAE26F2C9CD009BCB38 /* NotificationsPermissionVcSnapshotTests.swift in Sources */,
 				EDAA813A26D44B8B00816933 /* ButtonViewSnapshotTests.swift in Sources */,
-				052DD4E626FBDA660072E4C1 /* HomeContentViewSnapshotTests.swift in Sources */,
 				DE04FA2E26C45B7900D8D498 /* UIColorUnitTests.swift in Sources */,
 				1349ADC126C5411100981469 /* UnitTestStructPlaceResult.swift in Sources */,
 				B19B82A526C47EFF008C3980 /* NotificationNameExtensionsUnitTests.swift in Sources */,
