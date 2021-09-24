@@ -126,6 +126,7 @@
 		B1C3EB4626D15B1600EB214C /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C3EB4426D15B1600EB214C /* CircularImageView.swift */; };
 		B1EC2EF426D9594E002ECD86 /* ReminderListViewViewCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC2EF326D9594E002ECD86 /* ReminderListViewViewCodeViewModel.swift */; };
 		B1F276EB26C40E0900996346 /* MKCoordinateSpanUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F276EA26C40E0900996346 /* MKCoordinateSpanUnitTests.swift */; };
+		B4111DD826FD5B1B00C71946 /* PlaceDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4111DD726FD5B1B00C71946 /* PlaceDetailsView.swift */; };
 		BC01518826DEE9D5005B140F /* ContributorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC01518726DEE9D5005B140F /* ContributorsViewController.swift */; };
 		BC01518A26DEEAF2005B140F /* ContributorsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC01518926DEEAF2005B140F /* ContributorsCoordinator.swift */; };
 		BC02947526D913F60030F589 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC02947326D913F60030F589 /* WelcomeViewModel.swift */; };
@@ -327,6 +328,7 @@
 		B1C3EB4426D15B1600EB214C /* CircularImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
 		B1EC2EF326D9594E002ECD86 /* ReminderListViewViewCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderListViewViewCodeViewModel.swift; sourceTree = "<group>"; };
 		B1F276EA26C40E0900996346 /* MKCoordinateSpanUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKCoordinateSpanUnitTests.swift; sourceTree = "<group>"; };
+		B4111DD726FD5B1B00C71946 /* PlaceDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsView.swift; sourceTree = "<group>"; };
 		BC01518726DEE9D5005B140F /* ContributorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributorsViewController.swift; sourceTree = "<group>"; };
 		BC01518926DEEAF2005B140F /* ContributorsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributorsCoordinator.swift; sourceTree = "<group>"; };
 		BC02947326D913F60030F589 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
@@ -716,6 +718,7 @@
 			children = (
 				9897153620F397F300F976FE /* PlaceDetailsViewController.swift */,
 				9897153720F397F300F976FE /* PlaceDetailsViewController.xib */,
+				B4111DD726FD5B1B00C71946 /* PlaceDetailsView.swift */,
 			);
 			path = PlaceDetails;
 			sourceTree = "<group>";
@@ -1358,6 +1361,7 @@
 				98DCD2BE20E8242B00A49897 /* CoordinatorType.swift in Sources */,
 				9804F6B52066D79300820153 /* Hereminders.xcdatamodeld in Sources */,
 				DEBEC9DA26D3E50500D92DB5 /* MapLocationView.swift in Sources */,
+				B4111DD826FD5B1B00C71946 /* PlaceDetailsView.swift in Sources */,
 				98F1C97D2066DFBD0008FF57 /* ReminderViewController.swift in Sources */,
 				989BAB0920F41D7800C82DF7 /* Button.swift in Sources */,
 				053A6D1C26F1588D0048388C /* PlaceSearchTableViewCellViewModel.swift in Sources */,
