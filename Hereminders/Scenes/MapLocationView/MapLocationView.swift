@@ -34,24 +34,12 @@ final class MapLocationView: UIView {
         let region = MKCoordinateRegion(center: viewModel.coordinate, span: .default)
         self.mapView.setRegion(region, animated: true)
         
-        let pin = MKPointAnnotation()
-        pin.title = viewModel.title
-        pin.coordinate = viewModel.coordinate
-        
-        self.mapView.addAnnotation(pin)
-    }
-    
-    public func configureWithCustomPin(with viewModel: MapLocationViewModel) {
-        let region = MKCoordinateRegion(center: viewModel.coordinate, span: .default)
-        self.mapView.setRegion(region, animated: true)
-        
         self.mapView.delegate = self
         
-        let pin = CustomAnnotation(title: viewModel.title, coordinate: viewModel.coordinate)
+        let pin = Annotation(title: viewModel.title, coordinate: viewModel.coordinate)
         self.mapView.addAnnotation(pin)
     }
 }
-
 
 // MARK: - Extension ViewProtocol
 extension MapLocationView: ViewProtocol {
@@ -83,13 +71,16 @@ extension MapLocationView : MKMapViewDelegate {
         annotationView.canShowCallout = true
         if annotation is MKUserLocation {
             return nil
-        } else if annotation is CustomAnnotation {
-            annotationView.image = Asset.iconPin.image
-            annotationView.contentMode = .scaleToFill
+        } else if annotation is Annotation {
+            let customPin =  Asset.iconPin.image
+            let size = CGSize(width: 50, height: 50)
+            UIGraphicsBeginImageContext(size)
+            customPin.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+            let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+            annotationView.image = resizedImage
             return annotationView
         } else {
             return nil
         }
     }
-    
 }

@@ -37,4 +37,26 @@ extension HomeViewController: MKMapViewDelegate {
         circleView.lineWidth = 2.0
         return circleView
     }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let identifier = "customPin"
+        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+            ?? MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        
+        annotationView.canShowCallout = true
+        if annotation is MKUserLocation {
+            return nil
+        } else if annotation is Annotation {
+            let customPin =  Asset.iconPin.image
+            let size = CGSize(width: 50, height: 50)
+            UIGraphicsBeginImageContext(size)
+            customPin.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+            let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+            annotationView.image = resizedImage
+            return annotationView
+        } else {
+            return nil
+        }
+    }
 }

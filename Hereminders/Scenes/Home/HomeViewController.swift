@@ -118,6 +118,7 @@ final class HomeViewController: UIViewController {
         self.configureNavigationBar()
         self.configureMapView()
         self.configureReminderListView()
+       // self.configureCustomPin()
     }
 
     func configureNavigationBar() {
@@ -135,6 +136,12 @@ final class HomeViewController: UIViewController {
         self.mapView.delegate = self
         self.mapView.showsUserLocation = true
     }
+    
+//    func configureCustomPin() {
+//        let viewModel = MapLocationViewModel(coordinate: self.place.coordinate, title: self.place.name)
+//        let pin = CustomAnnotation(title: viewModel.title, coordinate: viewModel.coordinate)
+//        self.mapView.addAnnotation(pin)
+//    }
 
     func configureReminderListView() {
 
