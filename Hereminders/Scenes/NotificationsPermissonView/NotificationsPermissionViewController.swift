@@ -19,7 +19,7 @@ class NotificationsPermissionViewController: UIViewController {
     // MARK: - Private Functions
     
     private func configureView() {
-        let view = NotificationsPermissionView()
+        let view = NotificationsPermissionView(self)
         
         let buttonViewModel = ButtonViewModel(titleButton: "Dar permissão à notificações")
         
@@ -28,7 +28,17 @@ class NotificationsPermissionViewController: UIViewController {
                                                         button: buttonViewModel)
         
         view.configure(with: viewModel)
-        
         self.view = view
+    }
+
+}
+
+// MARK: - Extension NotificationsPermissionDelegate
+
+extension NotificationsPermissionViewController: NotificationsPermissionDelegate {
+    
+    func didSelectNotificationPermission() {
+        print("Usuário clicou em Dar permissão")
+        
     }
 }

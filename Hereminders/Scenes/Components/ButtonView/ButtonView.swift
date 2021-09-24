@@ -9,7 +9,9 @@
 import UIKit
 
 final class ButtonView: UIView {
+    
     // MARK: - Propriedades
+    
     private var button: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -19,7 +21,9 @@ final class ButtonView: UIView {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         return button
     }()
+    
     // MARK: - Init
+    
     init() {
         
         super.init(frame: .zero)
@@ -33,14 +37,19 @@ final class ButtonView: UIView {
 		  configureView()
     }
     
-    //MARK: - ViewCode
+    // MARK: - ViewCode
+    
     func configure(with viewModel: ButtonViewModel) {
         self.button.setTitle(viewModel.titleButton, for: UIControl.State.normal)
     }
+    
+    func addAction(_ target: Any?, action: Selector, for controlEvents: UIControl.Event) {
+        self.button.addTarget(target, action: action, for: controlEvents)
+    }
 }
 
-
 // MARK: - Extension ViewProtocol
+
 extension ButtonView: ViewProtocol {
 	
 	func configureSubviews() {
@@ -56,5 +65,4 @@ extension ButtonView: ViewProtocol {
 			self.button.trailingAnchor.constraint(equalTo: trailingAnchor)
 		])
 	}
-	
 }

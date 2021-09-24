@@ -9,6 +9,11 @@
 import Foundation
 import UIKit
 
+protocol NotificationsPermissionDelegate: AnyObject {
+    
+    func didSelectNotificationPermission()
+}
+
 class NotificationsPermissionView: UIView, ViewProtocol {
 
     // MARK: - UIElements
@@ -55,15 +60,22 @@ class NotificationsPermissionView: UIView, ViewProtocol {
         return subtitle
     }()
     
-    private let addNewPlaceButton: ButtonView = {
+    private let giveNotificationPermission: ButtonView = {
         let buttonView = ButtonView()
         buttonView.translatesAutoresizingMaskIntoConstraints = false
         
         return buttonView
     }()
     
-    override init(frame: CGRect = .zero) {
-        super.init(frame: frame)
+    // MARK: - Private Properties
+    
+    private unowned let delegate: NotificationsPermissionDelegate?
+    
+    // MARK: - Inits
+    
+    init(_ delegate: NotificationsPermissionDelegate) {
+        self.delegate = delegate
+        super.init(frame: .zero)
         
         self.configureView()
     }
@@ -74,12 +86,16 @@ class NotificationsPermissionView: UIView, ViewProtocol {
     
     // MARK: - Functions
     
+    @objc func tappedNotificationPermission() {
+        delegate?.didSelectNotificationPermission()
+    }
+    
     func configureSubviews() {
         addSubview(stackView)
         stackView.addArrangedSubview(iconImageView)
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(subtitleLabel)
-        stackView.addArrangedSubview(addNewPlaceButton)
+        stackView.addArrangedSubview(giveNotificationPermission)
         
         self.backgroundColor = .white
     }
@@ -94,14 +110,17 @@ class NotificationsPermissionView: UIView, ViewProtocol {
             iconImageView.heightAnchor.constraint(equalToConstant: 50),
             iconImageView.widthAnchor.constraint(equalToConstant: 50),
             
-            addNewPlaceButton.widthAnchor.constraint(equalToConstant: 343),
-            addNewPlaceButton.heightAnchor.constraint(equalToConstant: 44)
+            giveNotificationPermission.widthAnchor.constraint(equalToConstant: 343),
+            giveNotificationPermission.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
     
     func configure(with viewModel: NotificationsPermissonViewModel) {
         titleLabel.text = viewModel.title
         subtitleLabel.text = viewModel.subtitle
-        addNewPlaceButton.configure(with: viewModel.button)
+        giveNotificationPermission.configure(with: viewModel.button)
+        
+        giveNotificationPermission.addAction(self,
+                                    action: #selector(tappedNotificationPermission), for: .touchUpInside)
     }
 }
