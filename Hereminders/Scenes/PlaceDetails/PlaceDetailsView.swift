@@ -11,10 +11,14 @@ import UIKit
 
 class PlaceDetailsView: UIView {
     
+    let place: Place
+//    let dataController: DataControllerType
+    
     private let stackView: UIStackView = {
         
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
         
         return stackView
     }()
@@ -27,29 +31,27 @@ class PlaceDetailsView: UIView {
         return mapLocationView
     }()
     
-    private let tableView: UITableView = {
-        
-        let tableView = UITableView()
+    private lazy var tableView: UITableView = {
+
+        let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.dataSource = tableView as? UITableViewDataSource
+        tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44.0
-        
+        TextInputTableViewCell.registerXib(in: tableView)
+
         return tableView
     }()
     
-    private func configureNavigationBar() {
-    
-        let navigationItem = UINavigationItem()
-        navigationItem.title = L10n.PlaceDetails.title
-        }
-    
-    init() {
-        super.init(frame: .zero)
+    override init(frame: CGRect = .zero) {
+        super.init(frame: frame)
         
-        self.configureView()
-        self.configureConstraints()
-        self.configureNavigationBar()
+        configureView()
+        configureConstraints()
+    }
+    
+    convenience init() {
+        self.init(frame: .zero)
     }
     
     required init?(coder: NSCoder) {
@@ -58,10 +60,11 @@ class PlaceDetailsView: UIView {
     
     private func configureView() {
         
-        self.backgroundColor = .black
+        self.backgroundColor = .white
         self.addSubview(self.stackView)
         self.stackView.addArrangedSubview(self.mapLocationView)
         self.stackView.addArrangedSubview(self.tableView)
+//        configureMapLocationView()
     }
     
     private func configureConstraints() {
@@ -74,8 +77,18 @@ class PlaceDetailsView: UIView {
             self.tableView.heightAnchor.constraint(equalToConstant: 608)
         ])
     }
+    
+    func configure(with viewModel: PlaceDetailsViewModel) {
+        tableView.dataSource = viewModel.place as? UITableViewDataSource
+    }
+    
+    private func configureMapLocationView() {
+        let viewModel = MapLocationViewModel(coordinate: self.place.coordinate, title: self.place.name)
+        self.mapLocationView.configure(with: viewModel)
+    }
 }
 
+// MARK: - TableViewDataSource
 extension PlaceDetailsView: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
 
@@ -100,15 +113,13 @@ extension PlaceDetailsView: UITableViewDataSource {
     }
 
     func nameCell(inTableView tableView: UITableView, forIndexPath indexPath: IndexPath) -> TextInputTableViewCell {
-        let place = Place()
         let cell: TextInputTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
         cell.configure(withPlaceholder: L10n.PlaceDetails.namePlaceholder, andDelegate: self)
-        cell.textField.text = place.name
+        cell.textField.text = "Place Name"
         return cell
     }
 
     func addressCell(inTableView tableView: UITableView, forIndexPath indexPath: IndexPath) -> UITableViewCell {
-        let place = Place()
         var cell = tableView.dequeueReusableCell(withIdentifier: "AddressCell")
 
         if cell == nil {
@@ -116,7 +127,7 @@ extension PlaceDetailsView: UITableViewDataSource {
             cell?.selectionStyle = .none
         }
 
-        cell?.textLabel?.text = place.address
+        cell?.textLabel?.text = "Place Address"
         return cell!
     }
 
@@ -132,16 +143,16 @@ extension PlaceDetailsView: UITableViewDataSource {
         }
     }
 }
-
+//MARK: - Cell Delegate
 extension PlaceDetailsView: TextInputCellDelegate {
-    
+
         func textFieldDidReturn(_ textField: UITextField) {
-    
+
             if let text = textField.text, !text.isEmpty {
-                let place = Place()
-    
-                place.name = text
-                NotificationCenter.default.post(name: .editPlace, object: place)
+
+//                self.place.name = text
+//                self.dataController.saveContext()
+                NotificationCenter.default.post(name: .editPlace, object: nil)
             }
         }
     }

@@ -127,6 +127,8 @@
 		B1EC2EF426D9594E002ECD86 /* ReminderListViewViewCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC2EF326D9594E002ECD86 /* ReminderListViewViewCodeViewModel.swift */; };
 		B1F276EB26C40E0900996346 /* MKCoordinateSpanUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F276EA26C40E0900996346 /* MKCoordinateSpanUnitTests.swift */; };
 		B4111DD826FD5B1B00C71946 /* PlaceDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4111DD726FD5B1B00C71946 /* PlaceDetailsView.swift */; };
+		B49D493A26FE4D690030B9AA /* PlaceDetailsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D493926FE4D690030B9AA /* PlaceDetailsTableView.swift */; };
+		B49D493E26FE8E3B0030B9AA /* PlaceDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D493D26FE8E3B0030B9AA /* PlaceDetailsViewModel.swift */; };
 		BC01518826DEE9D5005B140F /* ContributorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC01518726DEE9D5005B140F /* ContributorsViewController.swift */; };
 		BC01518A26DEEAF2005B140F /* ContributorsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC01518926DEEAF2005B140F /* ContributorsCoordinator.swift */; };
 		BC02947526D913F60030F589 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC02947326D913F60030F589 /* WelcomeViewModel.swift */; };
@@ -329,6 +331,8 @@
 		B1EC2EF326D9594E002ECD86 /* ReminderListViewViewCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderListViewViewCodeViewModel.swift; sourceTree = "<group>"; };
 		B1F276EA26C40E0900996346 /* MKCoordinateSpanUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKCoordinateSpanUnitTests.swift; sourceTree = "<group>"; };
 		B4111DD726FD5B1B00C71946 /* PlaceDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsView.swift; sourceTree = "<group>"; };
+		B49D493926FE4D690030B9AA /* PlaceDetailsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsTableView.swift; sourceTree = "<group>"; };
+		B49D493D26FE8E3B0030B9AA /* PlaceDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsViewModel.swift; sourceTree = "<group>"; };
 		BC01518726DEE9D5005B140F /* ContributorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributorsViewController.swift; sourceTree = "<group>"; };
 		BC01518926DEEAF2005B140F /* ContributorsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributorsCoordinator.swift; sourceTree = "<group>"; };
 		BC02947326D913F60030F589 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
@@ -719,6 +723,8 @@
 				9897153620F397F300F976FE /* PlaceDetailsViewController.swift */,
 				9897153720F397F300F976FE /* PlaceDetailsViewController.xib */,
 				B4111DD726FD5B1B00C71946 /* PlaceDetailsView.swift */,
+				B49D493926FE4D690030B9AA /* PlaceDetailsTableView.swift */,
+				B49D493D26FE8E3B0030B9AA /* PlaceDetailsViewModel.swift */,
 			);
 			path = PlaceDetails;
 			sourceTree = "<group>";
@@ -1316,6 +1322,7 @@
 				B1C3EB4526D15B1600EB214C /* CircularImageViewModel.swift in Sources */,
 				EDAA814326D44BBC00816933 /* ButtonViewModel.swift in Sources */,
 				98DD30832068203300AA7E75 /* Place.swift in Sources */,
+				B49D493A26FE4D690030B9AA /* PlaceDetailsTableView.swift in Sources */,
 				9871B417214483460050C651 /* AppDelegate+ThemeConfiguration.swift in Sources */,
 				983341C820DC53AD006011CF /* PlaceSearchViewController.swift in Sources */,
 				9871B41221447B0A0050C651 /* PlaceDataController.swift in Sources */,
@@ -1367,6 +1374,7 @@
 				053A6D1C26F1588D0048388C /* PlaceSearchTableViewCellViewModel.swift in Sources */,
 				98DCD2B920E1C4C900A49897 /* ReminderListView.swift in Sources */,
 				9897154320F3B5FA00F976FE /* ImagesConstants.generated.swift in Sources */,
+				B49D493E26FE8E3B0030B9AA /* PlaceDetailsViewModel.swift in Sources */,
 				98F1C9892066E4570008FF57 /* UITableViewCell+Extensions.swift in Sources */,
 				9897153820F397F300F976FE /* PlaceDetailsViewController.swift in Sources */,
 				DE77EF6426E261EA0008D854 /* ContributorsViewModel.swift in Sources */,
