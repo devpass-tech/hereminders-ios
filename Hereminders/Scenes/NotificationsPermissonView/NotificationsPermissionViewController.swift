@@ -38,7 +38,7 @@ class NotificationsPermissionViewController: UIViewController {
 extension NotificationsPermissionViewController: NotificationsPermissionDelegate {
     
     func didSelectNotificationPermission() {
-        print("Usuário clicou em Dar permissão")
-        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        appDelegate.requestNotificationsAuthorization()
     }
 }

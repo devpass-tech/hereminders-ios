@@ -32,7 +32,7 @@ extension AppDelegate {
         let categories = Set(arrayLiteral: category)
         self.notificationCenter.setNotificationCategories(categories)
 
-        self.requestNotificationsAuthorization()
+//        self.requestNotificationsAuthorization()
     }
 }
 
