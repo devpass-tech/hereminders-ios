@@ -2,7 +2,7 @@ PODS:
   - RxSwift (6.2.0)
   - SnapshotTesting (1.9.0)
   - SwiftGen (6.4.0)
-  - SwiftLint (0.44.0)
+  - SwiftLint (0.43.1)
 
 DEPENDENCIES:
   - RxSwift
@@ -21,8 +21,8 @@ SPEC CHECKSUMS:
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SnapshotTesting: 6141c48b6aa76ead61431ca665c14ab9a066c53b
   SwiftGen: 67860cc7c3cfc2ed25b9b74cfd55495fc89f9108
-  SwiftLint: e96c0a8c770c7ebbc4d36c55baf9096bb65c4584
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: ef8a00b9fdff55438189c6ae517fd4949032231f
+PODFILE CHECKSUM: 7fd353783ccabd52fd14540105585b6f4241c7dd
 
 COCOAPODS: 1.9.3
