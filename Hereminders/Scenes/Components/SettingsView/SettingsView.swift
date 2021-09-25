@@ -53,19 +53,8 @@ extension SettingsView: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return SectionName.allCases.count
-    }
-        
-    func newHeaderViewLabel(section: Int) -> UILabel {
-        let text = SectionName(rawValue: section)?.getSectionName().uppercased() ?? ""
-        let sectionText = UILabel()
-        sectionText.textAlignment = .left
-        sectionText.textColor = UIColor.gray
-        sectionText.font = UIFont.systemFont(ofSize: 13)
-        sectionText.numberOfLines = 1
-        sectionText.text = text
-        return sectionText
-    }
-    
+    }      
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == SectionName.credits.rawValue {
             return 2
@@ -108,21 +97,6 @@ extension SettingsView: UITableViewDataSource {
         guard let sectionIndex: SectionName = SectionName(rawValue: section)
         else { return nil }
         return sectionIndex.getSectionName()
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width,height: 0))
-        headerView.backgroundColor = .systemGroupedBackground
-        let sectionTitle = newHeaderViewLabel(section: section)
-        headerView.addSubview(sectionTitle)
-        sectionTitle.addConstraintsToFillView(headerView,paddingTop: 14.9,paddingLeft: 20,paddingBottom: 7.4)
-        return headerView
-    }
-
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 0))
-        headerView.backgroundColor = .systemGroupedBackground
-        return headerView
     }
 }
 
