@@ -37,21 +37,4 @@ extension HomeViewController: MKMapViewDelegate {
         circleView.lineWidth = 2.0
         return circleView
     }
-    
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
-        let identifier = "customPin"
-        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-            ?? MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-        
-        annotationView.canShowCallout = true
-        if annotation is MKUserLocation {
-            return nil
-        } else if annotation is PlaceAnnotation {
-            annotationView.image = configureCustomPin()
-            return annotationView
-        } else {
-            return nil
-        }
-    }
 }

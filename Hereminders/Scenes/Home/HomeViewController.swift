@@ -192,15 +192,6 @@ final class HomeViewController: UIViewController {
             self.mapView.addAnnotation(newPlaceAnnotation)
         }
     }
-    
-    func configureCustomPin() -> UIImage {
-        let customPin =  Asset.iconPin.image
-        let size = CGSize(width: 50, height: 50)
-        UIGraphicsBeginImageContext(size)
-        customPin.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        let resizedImage = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
-        return resizedImage
-    }
 }
 
 extension HomeViewController: ReminderListViewDelegate {
