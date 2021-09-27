@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		052DD4E126FA03850072E4C1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052DD4E026FA03850072E4C1 /* SettingsView.swift */; };
+		052DD4E426FBD8C50072E4C1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052DD4E326FBD8C50072E4C1 /* HomeView.swift */; };
 		053A6D1A26F158670048388C /* PlaceSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053A6D1926F158670048388C /* PlaceSearchTableViewCell.swift */; };
 		053A6D1C26F1588D0048388C /* PlaceSearchTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053A6D1B26F1588D0048388C /* PlaceSearchTableViewCellViewModel.swift */; };
 		059A0AEB26F55153003351DB /* SettingsViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059A0AEA26F55153003351DB /* SettingsViewSnapshotTests.swift */; };
@@ -28,7 +29,6 @@
 		9804F6BA2066D79300820153 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9804F6B82066D79300820153 /* LaunchScreen.storyboard */; };
 		9804F6E32066D90A00820153 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9804F6E22066D90A00820153 /* DataController.swift */; };
 		9804F6E72066DAC900820153 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9804F6E52066DAC900820153 /* HomeViewController.swift */; };
-		9804F6E82066DAC900820153 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9804F6E62066DAC900820153 /* HomeViewController.xib */; };
 		9804F6EA2066DBB400820153 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9804F6E92066DBB400820153 /* UIViewController+Extensions.swift */; };
 		9807EB3220C9ECD100B5F7DA /* HomeViewController+MKMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9807EB3120C9ECD100B5F7DA /* HomeViewController+MKMapViewDelegate.swift */; };
 		9807EB3420C9EEE800B5F7DA /* ReminderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9807EB3320C9EEE800B5F7DA /* ReminderViewModel.swift */; };
@@ -203,6 +203,7 @@
 
 /* Begin PBXFileReference section */
 		052DD4E026FA03850072E4C1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		052DD4E326FBD8C50072E4C1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		053A6D1926F158670048388C /* PlaceSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchTableViewCell.swift; sourceTree = "<group>"; };
 		053A6D1B26F1588D0048388C /* PlaceSearchTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		059A0AEA26F55153003351DB /* SettingsViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewSnapshotTests.swift; sourceTree = "<group>"; };
@@ -229,7 +230,6 @@
 		9804F6C62066D79300820153 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9804F6E22066D90A00820153 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		9804F6E52066DAC900820153 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		9804F6E62066DAC900820153 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		9804F6E92066DBB400820153 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		9807EB3120C9ECD100B5F7DA /* HomeViewController+MKMapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+MKMapViewDelegate.swift"; sourceTree = "<group>"; };
 		9807EB3320C9EEE800B5F7DA /* ReminderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewModel.swift; sourceTree = "<group>"; };
@@ -406,6 +406,14 @@
 			path = SettingsView;
 			sourceTree = "<group>";
 		};
+		052DD4E226FBD8AB0072E4C1 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				052DD4E326FBD8C50072E4C1 /* HomeView.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
 		053A6D1826F158420048388C /* PlaceSearchTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -571,7 +579,6 @@
 			children = (
 				98DCD2B520E1C4A000A49897 /* ReminderListView */,
 				9804F6E52066DAC900820153 /* HomeViewController.swift */,
-				9804F6E62066DAC900820153 /* HomeViewController.xib */,
 				9807EB3120C9ECD100B5F7DA /* HomeViewController+MKMapViewDelegate.swift */,
 				988082C920C1F31900B4E660 /* HomeViewModel.swift */,
 			);
@@ -642,6 +649,7 @@
 		988E0B3026CB1F5A008BBBCF /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				052DD4E226FBD8AB0072E4C1 /* HomeView */,
 				BC295DB326FCB642006533C7 /* PlaceTableViewCell */,
 				052DD4DF26FA03690072E4C1 /* SettingsView */,
 				053A6D1826F158420048388C /* PlaceSearchTableViewCell */,
@@ -1146,7 +1154,6 @@
 				9897154520F3C6DE00F976FE /* Localizable.strings in Resources */,
 				9804F6B72066D79300820153 /* Assets.xcassets in Resources */,
 				98DA12B72119147E0090CA2B /* README.md in Resources */,
-				9804F6E82066DAC900820153 /* HomeViewController.xib in Resources */,
 				9897153920F397F300F976FE /* PlaceDetailsViewController.xib in Resources */,
 				98DA12B52119147E0090CA2B /* Appfile in Resources */,
 				98DCD2B720E1C4B700A49897 /* ReminderListView.xib in Resources */,
@@ -1377,6 +1384,7 @@
 				98DCD2BE20E8242B00A49897 /* CoordinatorType.swift in Sources */,
 				9804F6B52066D79300820153 /* Hereminders.xcdatamodeld in Sources */,
 				DEBEC9DA26D3E50500D92DB5 /* MapLocationView.swift in Sources */,
+				052DD4E426FBD8C50072E4C1 /* HomeView.swift in Sources */,
 				98F1C97D2066DFBD0008FF57 /* ReminderViewController.swift in Sources */,
 				989BAB0920F41D7800C82DF7 /* Button.swift in Sources */,
 				053A6D1C26F1588D0048388C /* PlaceSearchTableViewCellViewModel.swift in Sources */,
