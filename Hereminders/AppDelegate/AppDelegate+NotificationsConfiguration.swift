@@ -16,6 +16,14 @@ extension AppDelegate {
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
         self.notificationCenter.requestAuthorization(options: options) { granted, error in }
     }
+    
+    func permissionDenied(completion: @escaping (Bool, Error?) -> Void) {
+        self.notificationCenter.getNotificationSettings { settings in
+            if settings.authorizationStatus == .denied {
+                completion(true, nil)
+            }
+        }
+    }
 
     func configureNotifications() {
 

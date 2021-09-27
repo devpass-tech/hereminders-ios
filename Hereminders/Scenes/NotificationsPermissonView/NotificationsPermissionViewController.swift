@@ -12,6 +12,11 @@ class NotificationsPermissionViewController: UIViewController {
     
     // MARK: - View Lifecycle
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+//        permissionDenied()
+    }
+    
     override func loadView() {
         configureView()
     }
@@ -30,7 +35,25 @@ class NotificationsPermissionViewController: UIViewController {
         view.configure(with: viewModel)
         self.view = view
     }
-
+    
+    private func permissionDenied() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        appDelegate.permissionDenied { result, _ in
+            print("DEBUG: \(result)")
+            guard result else { return }
+            print("DEBUG: Permissao negada")
+            self.proceedToAppPrivacySettings()
+        }
+    }
+    
+    private func proceedToAppPrivacySettings() {
+        guard let url = URL(
+                string: UIApplication.openSettingsURLString),
+                UIApplication.shared.canOpenURL(url)
+        else { return }
+        
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
 }
 
 // MARK: - Extension NotificationsPermissionDelegate
