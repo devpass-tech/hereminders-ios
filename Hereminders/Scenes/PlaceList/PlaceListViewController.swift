@@ -72,7 +72,7 @@ class PlaceListViewController: UIViewController {
                                              action: #selector(didTapAddPlaceButton))
         self.navigationItem.rightBarButtonItem = addPlaceButton
 
-        self.navigationItem.title = L10n.Placelist.title
+        self.navigationItem.title = L10n.PlaceList.title
     }
 
     func configureTableView() {

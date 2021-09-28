@@ -20,23 +20,30 @@ protocol HomeViewControllerDelegate: AnyObject {
 
 final class HomeViewController: UIViewController {
     
-    @IBOutlet var mapView: MKMapView!
-    @IBOutlet weak var reminderListView: ReminderListView!
-    
     weak var delegate: HomeViewControllerDelegate?
+    
+    lazy var homeView: HomeView = {
+        let screen = HomeView()
+        screen.configureDelegate(delegate: self)
+        return screen
+    }()
     
     let viewModel: HomeViewModel
     
     private let disposeBag = DisposeBag()
     
-    init(viewModel: HomeViewModel) {
-        
+    init(viewModel: HomeViewModel, delegate: HomeViewControllerDelegate) {
+        self.delegate = delegate
         self.viewModel = viewModel
-        super.init(nibName: "HomeViewController", bundle: Bundle.main)
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func loadView() {
+        self.view = homeView
     }
     
     override func viewDidLoad() {
@@ -69,14 +76,12 @@ final class HomeViewController: UIViewController {
         
         self.viewModel.annotationsSubject
             .subscribe(onNext: { [weak self] annotations in
-                
-                self?.mapView.replaceAnnotations(with: annotations)
+                self?.homeView.mapView.replaceAnnotations(with: annotations)
             })
             .disposed(by: self.disposeBag)
         
         self.viewModel.selectedPlaceSubject
             .subscribe(onNext: { [weak self] selectedPlace in
-                
                 self?.handleSelectedPlaceEvent(selectedPlace)
             })
             .disposed(by: self.disposeBag)
@@ -84,30 +89,30 @@ final class HomeViewController: UIViewController {
         self.viewModel.selectedAnnotationSubject
             .subscribe(onNext: { [weak self] annotation in
                 
-                self?.mapView.moveToAnnotation(annotation)
-                self?.mapView.selectAnnotation(annotation, animated: true)
+                self?.homeView.mapView.moveToAnnotation(annotation)
+                self?.homeView.mapView.selectAnnotation(annotation, animated: true)
             })
             .disposed(by: self.disposeBag)
     }
     
     func handleSelectedPlaceEvent(_ selectedPlace: (Place, [Reminder])?) {
         
-        self.mapView.removeOverlays(self.mapView.overlays)
+        self.homeView.mapView.removeOverlays(self.homeView.mapView.overlays)
         
         if let place = selectedPlace {
             
             let viewModel = ReminderListViewModel(placeName: place.0.name,
                                                   placeAddress: place.0.address,
                                                   reminders: place.1)
-            self.reminderListView.render(with: viewModel)
+            self.homeView.reminderListView.render(with: viewModel)
             
             let coordinate = CLLocationCoordinate2D(latitude: place.0.latitude,
                                                     longitude: place.0.longitude)
             let circle = MKCircle(center: coordinate, radius: 100)
-            self.mapView.addOverlay(circle)
+            self.homeView.mapView.addOverlay(circle)
         } else {
             
-            self.reminderListView.render(with: nil)
+            self.homeView.reminderListView.render(with: nil)
         }
     }
     
@@ -132,13 +137,13 @@ final class HomeViewController: UIViewController {
     
     func configureMapView() {
         
-        self.mapView.delegate = self
-        self.mapView.showsUserLocation = true
+        self.homeView.mapView.delegate = self
+        self.homeView.mapView.showsUserLocation = true
     }
     
     func configureReminderListView() {
         
-        self.reminderListView.delegate = self
+        self.homeView.reminderListView.delegate = self
     }
     
     @objc func didTapOnSettingsButton() {
@@ -154,7 +159,7 @@ final class HomeViewController: UIViewController {
         }
         
         let annotation = PlaceAnnotation(place: place)
-        self.mapView.addAnnotation(annotation)
+        self.homeView.mapView.addAnnotation(annotation)
     }
     
     @objc func handleRemovePlaceNotification(_ notification: Notification) {
@@ -164,13 +169,13 @@ final class HomeViewController: UIViewController {
             return
         }
         
-        let annotations = self.mapView.annotations
+        let annotations = self.homeView.mapView.annotations
             .compactMap({ $0 as? PlaceAnnotation })
             .filter({ $0.coordinate.latitude == place.coordinate.latitude && $0.coordinate.longitude == place.coordinate.longitude })
         
         if let annotation = annotations.first {
             
-            self.mapView.removeAnnotation(annotation)
+            self.homeView.mapView.removeAnnotation(annotation)
         }
     }
     
@@ -181,15 +186,15 @@ final class HomeViewController: UIViewController {
             return
         }
         
-        let annotations = self.mapView.annotations
+        let annotations = self.homeView.mapView.annotations
             .compactMap({ $0 as? PlaceAnnotation })
             .filter({ $0.coordinate.latitude == place.coordinate.latitude && $0.coordinate.longitude == place.coordinate.longitude })
         
         if let annotation = annotations.first {
             
             let newPlaceAnnotation = PlaceAnnotation(place: place)
-            self.mapView.removeAnnotation(annotation)
-            self.mapView.addAnnotation(newPlaceAnnotation)
+            self.homeView.mapView.removeAnnotation(annotation)
+            self.homeView.mapView.addAnnotation(newPlaceAnnotation)
         }
     }
 }
@@ -198,7 +203,7 @@ extension HomeViewController: ReminderListViewDelegate {
     
     func reminderListViewDidTapOnAddReminderButton() {
         
-        guard let annotation = self.mapView.selectedAnnotations.first,
+        guard let annotation = self.homeView.mapView.selectedAnnotations.first,
               let placeAnnotation = annotation as? PlaceAnnotation else {
             return
         }
@@ -215,5 +220,25 @@ extension HomeViewController: ReminderListViewDelegate {
     func reminderListViewWantsToRemoveReminder(_ reminder: Reminder) {
         
         self.viewModel.removeReminder(reminder)
+    }
+}
+
+
+
+extension HomeViewController: HomeViewControllerDelegate {
+    func homeViewControllerDidOpenReminder(_ reminder: Reminder) {
+        self.delegate?.homeViewControllerDidOpenReminder(reminder)
+    }
+    
+    func homeViewControllerWantsToAddNewReminder(at place: Place?) {
+        self.delegate?.homeViewControllerWantsToAddNewReminder(at: place)
+    }
+    
+    func homeViewControllerWantsToAddNewPlace() {
+        self.delegate?.homeViewControllerWantsToAddNewPlace()
+    }
+
+    func homeViewControllerWantsToOpenSettings() {
+        self.delegate?.homeViewControllerWantsToOpenSettings()
     }
 }

@@ -17,7 +17,7 @@ class ButtonViewSnapshotTests: XCTestCase {
         let buttonViewModel = ButtonViewModel(titleButton: "Add new place")
         button.configure(with: buttonViewModel)
         
-        assertSnapshot(matching: button, as: Snapshotting.image(size: CGSize(width: 343, height: 44)))
+        assertSnapshot(matching: button, as: Snapshotting.image(size: CGSize(width: 343, height: 44)), record: false)
         
     }
     

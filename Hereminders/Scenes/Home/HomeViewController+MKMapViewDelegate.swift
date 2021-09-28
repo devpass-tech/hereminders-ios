@@ -18,7 +18,7 @@ extension HomeViewController: MKMapViewDelegate {
         
         let place = placeAnnotation.place
         self.viewModel.selectPlace(place)
-        self.mapView.moveToAnnotation(annotation)
+        self.homeView.mapView.moveToAnnotation(annotation)
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
