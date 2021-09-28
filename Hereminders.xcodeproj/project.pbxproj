@@ -18,6 +18,7 @@
 		133D727C26C6E1150065ECB5 /* MKPlaceMarkExtensionsUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133D727B26C6E1150065ECB5 /* MKPlaceMarkExtensionsUnitTest.swift */; };
 		1349ADC126C5411100981469 /* UnitTestStructPlaceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1349ADC026C5411100981469 /* UnitTestStructPlaceResult.swift */; };
 		13DB8EFD26D42AF000CB86EA /* DividerViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DB8EFC26D42AF000CB86EA /* DividerViewSnapshotTests.swift */; };
+		70FB052A270359D0000E18B4 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FB0529270359D0000E18B4 /* UIImage+Extensions.swift */; };
 		71BDEEA626F266C7009BCB38 /* NotificationsPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDEEA526F266C7009BCB38 /* NotificationsPermissionView.swift */; };
 		71BDEEA826F26DA3009BCB38 /* NotificationsPermissonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDEEA726F26DA3009BCB38 /* NotificationsPermissonViewModel.swift */; };
 		71BDEEAE26F2C9CD009BCB38 /* NotificationsPermissionVcSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDEEAD26F2C9CD009BCB38 /* NotificationsPermissionVcSnapshotTests.swift */; };
@@ -217,6 +218,7 @@
 		4591A10EE7BBB8072D6910ED /* Pods-HeremindersTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeremindersTests.release.xcconfig"; path = "Target Support Files/Pods-HeremindersTests/Pods-HeremindersTests.release.xcconfig"; sourceTree = "<group>"; };
 		53B188B3AEA973531A098D02 /* Pods_HeremindersTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeremindersTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		638C41BF7A786581D6BBA693 /* Pods-Hereminders.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hereminders.debug.xcconfig"; path = "Target Support Files/Pods-Hereminders/Pods-Hereminders.debug.xcconfig"; sourceTree = "<group>"; };
+		70FB0529270359D0000E18B4 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		71BDEEA526F266C7009BCB38 /* NotificationsPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPermissionView.swift; sourceTree = "<group>"; };
 		71BDEEA726F26DA3009BCB38 /* NotificationsPermissonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPermissonViewModel.swift; sourceTree = "<group>"; };
 		71BDEEAD26F2C9CD009BCB38 /* NotificationsPermissionVcSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPermissionVcSnapshotTests.swift; sourceTree = "<group>"; };
@@ -538,6 +540,7 @@
 				987AD732213F4537002F3D26 /* UIBarButtonItem+Extensions.swift */,
 				986B9C7E2140CF5000A1D103 /* Bundle+Extensions.swift */,
 				059A0AEC26F62511003351DB /* UIView+Extensions.swift */,
+				70FB0529270359D0000E18B4 /* UIImage+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1375,6 +1378,7 @@
 				DE4282CE26E10EEF0014EB5A /* TextInputCellViewModel.swift in Sources */,
 				052DD4E126FA03850072E4C1 /* SettingsView.swift in Sources */,
 				9877BBF120F1ADA1001D2688 /* SettingsViewController.swift in Sources */,
+				70FB052A270359D0000E18B4 /* UIImage+Extensions.swift in Sources */,
 				9809C71126E94C7100345422 /* RadiusTableViewCellModel.swift in Sources */,
 				059A0AED26F62511003351DB /* UIView+Extensions.swift in Sources */,
 				988E0B3726CB291D008BBBCF /* EmptyViewModel.swift in Sources */,
