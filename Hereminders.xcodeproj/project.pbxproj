@@ -55,7 +55,6 @@
 		9877BBEB20F1A824001D2688 /* PlaceListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9877BBE920F1A824001D2688 /* PlaceListViewController.xib */; };
 		9877BBED20F1AA21001D2688 /* PlaceListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9877BBEC20F1AA21001D2688 /* PlaceListCoordinator.swift */; };
 		9877BBF120F1ADA1001D2688 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9877BBEF20F1ADA1001D2688 /* SettingsViewController.swift */; };
-		9877BBF220F1ADA1001D2688 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9877BBF020F1ADA1001D2688 /* SettingsViewController.xib */; };
 		9877BBF420F1B009001D2688 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9877BBF320F1B009001D2688 /* SettingsCoordinator.swift */; };
 		987AD731213E1FCB002F3D26 /* NotificationName+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987AD730213E1FCB002F3D26 /* NotificationName+Extensions.swift */; };
 		987AD733213F4537002F3D26 /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987AD732213F4537002F3D26 /* UIBarButtonItem+Extensions.swift */; };
@@ -260,7 +259,6 @@
 		9877BBE920F1A824001D2688 /* PlaceListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceListViewController.xib; sourceTree = "<group>"; };
 		9877BBEC20F1AA21001D2688 /* PlaceListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListCoordinator.swift; sourceTree = "<group>"; };
 		9877BBEF20F1ADA1001D2688 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		9877BBF020F1ADA1001D2688 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		9877BBF320F1B009001D2688 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		987AD730213E1FCB002F3D26 /* NotificationName+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extensions.swift"; sourceTree = "<group>"; };
 		987AD732213F4537002F3D26 /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
@@ -638,7 +636,6 @@
 			isa = PBXGroup;
 			children = (
 				9877BBEF20F1ADA1001D2688 /* SettingsViewController.swift */,
-				9877BBF020F1ADA1001D2688 /* SettingsViewController.xib */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1155,7 +1152,6 @@
 				98DA12B52119147E0090CA2B /* Appfile in Resources */,
 				98DCD2B720E1C4B700A49897 /* ReminderListView.xib in Resources */,
 				9877BBEB20F1A824001D2688 /* PlaceListViewController.xib in Resources */,
-				9877BBF220F1ADA1001D2688 /* SettingsViewController.xib in Resources */,
 				98D02AC920673F0700E8BC91 /* SegmentedControlTableViewCell.xib in Resources */,
 				98F1C9852066E33F0008FF57 /* TextInputTableViewCell.xib in Resources */,
 				98F1C9922066E6EF0008FF57 /* SliderTableViewCell.xib in Resources */,
