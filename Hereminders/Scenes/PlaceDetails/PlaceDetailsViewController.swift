@@ -15,6 +15,8 @@ final class PlaceDetailsViewController: UIViewController {
     let placeDetailsView = PlaceDetailsView()
 
     private let dataController: DataControllerType
+    
+    weak var delegate: PlaceDetailsViewProtocol?
 
     init(dataController: DataControllerType, place: Place) {
 
@@ -24,7 +26,7 @@ final class PlaceDetailsViewController: UIViewController {
     }
     
     override func loadView() {
-        self.view = PlaceDetailsView()
+        self.view = self.placeDetailsView
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -41,6 +43,7 @@ final class PlaceDetailsViewController: UIViewController {
 
         self.configureNavigationBar()
         self.getDetails()
+        self.configureMapLocationView()
     }
 
     private func configureNavigationBar() {
@@ -52,5 +55,16 @@ final class PlaceDetailsViewController: UIViewController {
         
         let viewModel = PlaceDetailsViewModel(place: place)
         placeDetailsView.configure(with: viewModel)
+    }
+    
+    func configureMapLocationView() {
+        let viewModelMap = MapLocationViewModel(coordinate: self.place.coordinate, title: self.place.name)
+        self.placeDetailsView.mapLocationView.configure(with: viewModelMap)
+    }
+}
+
+extension PlaceDetailsViewController: PlaceDetailsViewProtocol {
+    func didChangePlace() {
+        self.dataController.saveContext()
     }
 }

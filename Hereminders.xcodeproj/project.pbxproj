@@ -73,7 +73,6 @@
 		98942C3F2134E1AB00DA432B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98942C3E2134E1AB00DA432B /* Assets.xcassets */; };
 		9897153420F2D16400F976FE /* PlaceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897153320F2D16400F976FE /* PlaceListViewModel.swift */; };
 		9897153820F397F300F976FE /* PlaceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897153620F397F300F976FE /* PlaceDetailsViewController.swift */; };
-		9897153920F397F300F976FE /* PlaceDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9897153720F397F300F976FE /* PlaceDetailsViewController.xib */; };
 		9897153B20F39A1E00F976FE /* PlaceDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897153A20F39A1E00F976FE /* PlaceDetailsCoordinator.swift */; };
 		9897154320F3B5FA00F976FE /* ImagesConstants.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897154120F3B5F900F976FE /* ImagesConstants.generated.swift */; };
 		9897154420F3B5FA00F976FE /* Localized.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897154220F3B5FA00F976FE /* Localized.generated.swift */; };
@@ -127,7 +126,6 @@
 		B1EC2EF426D9594E002ECD86 /* ReminderListViewViewCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC2EF326D9594E002ECD86 /* ReminderListViewViewCodeViewModel.swift */; };
 		B1F276EB26C40E0900996346 /* MKCoordinateSpanUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F276EA26C40E0900996346 /* MKCoordinateSpanUnitTests.swift */; };
 		B4111DD826FD5B1B00C71946 /* PlaceDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4111DD726FD5B1B00C71946 /* PlaceDetailsView.swift */; };
-		B49D493A26FE4D690030B9AA /* PlaceDetailsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D493926FE4D690030B9AA /* PlaceDetailsTableView.swift */; };
 		B49D493E26FE8E3B0030B9AA /* PlaceDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D493D26FE8E3B0030B9AA /* PlaceDetailsViewModel.swift */; };
 		BC01518826DEE9D5005B140F /* ContributorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC01518726DEE9D5005B140F /* ContributorsViewController.swift */; };
 		BC01518A26DEEAF2005B140F /* ContributorsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC01518926DEEAF2005B140F /* ContributorsCoordinator.swift */; };
@@ -273,7 +271,6 @@
 		98942C3E2134E1AB00DA432B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9897153320F2D16400F976FE /* PlaceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListViewModel.swift; sourceTree = "<group>"; };
 		9897153620F397F300F976FE /* PlaceDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsViewController.swift; sourceTree = "<group>"; };
-		9897153720F397F300F976FE /* PlaceDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceDetailsViewController.xib; sourceTree = "<group>"; };
 		9897153A20F39A1E00F976FE /* PlaceDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsCoordinator.swift; sourceTree = "<group>"; };
 		9897154120F3B5F900F976FE /* ImagesConstants.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesConstants.generated.swift; sourceTree = "<group>"; };
 		9897154220F3B5FA00F976FE /* Localized.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localized.generated.swift; sourceTree = "<group>"; };
@@ -331,7 +328,6 @@
 		B1EC2EF326D9594E002ECD86 /* ReminderListViewViewCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderListViewViewCodeViewModel.swift; sourceTree = "<group>"; };
 		B1F276EA26C40E0900996346 /* MKCoordinateSpanUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKCoordinateSpanUnitTests.swift; sourceTree = "<group>"; };
 		B4111DD726FD5B1B00C71946 /* PlaceDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsView.swift; sourceTree = "<group>"; };
-		B49D493926FE4D690030B9AA /* PlaceDetailsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsTableView.swift; sourceTree = "<group>"; };
 		B49D493D26FE8E3B0030B9AA /* PlaceDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsViewModel.swift; sourceTree = "<group>"; };
 		BC01518726DEE9D5005B140F /* ContributorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributorsViewController.swift; sourceTree = "<group>"; };
 		BC01518926DEEAF2005B140F /* ContributorsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributorsCoordinator.swift; sourceTree = "<group>"; };
@@ -721,9 +717,7 @@
 			isa = PBXGroup;
 			children = (
 				9897153620F397F300F976FE /* PlaceDetailsViewController.swift */,
-				9897153720F397F300F976FE /* PlaceDetailsViewController.xib */,
 				B4111DD726FD5B1B00C71946 /* PlaceDetailsView.swift */,
-				B49D493926FE4D690030B9AA /* PlaceDetailsTableView.swift */,
 				B49D493D26FE8E3B0030B9AA /* PlaceDetailsViewModel.swift */,
 			);
 			path = PlaceDetails;
@@ -1139,7 +1133,6 @@
 				9804F6B72066D79300820153 /* Assets.xcassets in Resources */,
 				98DA12B72119147E0090CA2B /* README.md in Resources */,
 				9804F6E82066DAC900820153 /* HomeViewController.xib in Resources */,
-				9897153920F397F300F976FE /* PlaceDetailsViewController.xib in Resources */,
 				98DA12B52119147E0090CA2B /* Appfile in Resources */,
 				98DCD2B720E1C4B700A49897 /* ReminderListView.xib in Resources */,
 				9877BBEB20F1A824001D2688 /* PlaceListViewController.xib in Resources */,
@@ -1322,7 +1315,6 @@
 				B1C3EB4526D15B1600EB214C /* CircularImageViewModel.swift in Sources */,
 				EDAA814326D44BBC00816933 /* ButtonViewModel.swift in Sources */,
 				98DD30832068203300AA7E75 /* Place.swift in Sources */,
-				B49D493A26FE4D690030B9AA /* PlaceDetailsTableView.swift in Sources */,
 				9871B417214483460050C651 /* AppDelegate+ThemeConfiguration.swift in Sources */,
 				983341C820DC53AD006011CF /* PlaceSearchViewController.swift in Sources */,
 				9871B41221447B0A0050C651 /* PlaceDataController.swift in Sources */,

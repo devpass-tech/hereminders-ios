@@ -9,12 +9,15 @@
 import Foundation
 import UIKit
 
+protocol PlaceDetailsViewProtocol: AnyObject {
+    func didChangePlace()
+}
+
 class PlaceDetailsView: UIView {
     
-//    let place = Place()
-//    let dataController: DataControllerType
+    var place: Place?
     
-    var place: Place = Place()
+    weak var delegate: PlaceDetailsViewProtocol?
     
     private let stackView: UIStackView = {
         
@@ -25,7 +28,7 @@ class PlaceDetailsView: UIView {
         return stackView
     }()
     
-    private let mapLocationView: MapLocationView = {
+    let mapLocationView: MapLocationView = {
         
         let mapLocationView = MapLocationView()
         mapLocationView.translatesAutoresizingMaskIntoConstraints = false
@@ -50,7 +53,6 @@ class PlaceDetailsView: UIView {
         
         configureView()
         configureConstraints()
-        configureMapLocationView()
     }
     
     convenience init() {
@@ -81,12 +83,8 @@ class PlaceDetailsView: UIView {
     }
     
     func configure(with viewModel: PlaceDetailsViewModel) {
-        
-    }
-    
-    private func configureMapLocationView() {
-        let viewModelMap = MapLocationViewModel(coordinate: self.place.coordinate, title: self.place.name)
-        self.mapLocationView.configure(with: viewModelMap)
+        self.place = viewModel.place
+        self.tableView.reloadData()
     }
 }
 
@@ -117,7 +115,7 @@ extension PlaceDetailsView: UITableViewDataSource {
     func nameCell(inTableView tableView: UITableView, forIndexPath indexPath: IndexPath) -> TextInputTableViewCell {
         let cell: TextInputTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
         cell.configure(withPlaceholder: L10n.PlaceDetails.namePlaceholder, andDelegate: self)
-        cell.textField.text = self.place.name
+        cell.textField.text = self.place?.name
         return cell
     }
 
@@ -129,7 +127,7 @@ extension PlaceDetailsView: UITableViewDataSource {
             cell?.selectionStyle = .none
         }
 
-        cell?.textLabel?.text = self.place.address
+        cell?.textLabel?.text = self.place?.address
         return cell!
     }
 
@@ -152,8 +150,8 @@ extension PlaceDetailsView: TextInputCellDelegate {
 
             if let text = textField.text, !text.isEmpty {
 
-                self.place.name = text
-//                self.dataController.saveContext()
+                self.place?.name = text
+                self.delegate?.didChangePlace()
                 NotificationCenter.default.post(name: .editPlace, object: self.place)
             }
         }
