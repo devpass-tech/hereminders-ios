@@ -84,6 +84,8 @@ class PlaceDetailsView: UIView {
     
     func configure(with viewModel: PlaceDetailsViewModel) {
         self.place = viewModel.place
+        let viewModelMap = MapLocationViewModel(coordinate: self.place!.coordinate, title: self.place!.name)
+        self.mapLocationView.configure(with: viewModelMap)
         self.tableView.reloadData()
     }
 }
