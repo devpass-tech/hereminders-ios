@@ -34,25 +34,17 @@ final class PlaceDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureDelegate()
+        self.configureView()
     }
-
+    
     private func configureView() {
 
         self.configureNavigationBar()
-        self.loadView()
+//        self.configureMapLocationView()
     }
-    
+
     private func configureNavigationBar() {
-        
-        let navigationItem = UINavigationItem()
-        let placeDetails = L10n.PlaceDetails.title
-        navigationItem.title = placeDetails
-    }
-    
-    private func configureDelegate() {
-        
-        let viewModel = PlaceDetailsViewModel(place: self.place)
-        placeDetailsView.configure(with: viewModel)
+
+        self.navigationItem.title = L10n.PlaceDetails.title
     }
 }

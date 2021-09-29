@@ -11,7 +11,7 @@ import UIKit
 
 class PlaceDetailsView: UIView {
     
-    let place: Place
+//    let place = Place()
 //    let dataController: DataControllerType
     
     private let stackView: UIStackView = {
@@ -64,7 +64,6 @@ class PlaceDetailsView: UIView {
         self.addSubview(self.stackView)
         self.stackView.addArrangedSubview(self.mapLocationView)
         self.stackView.addArrangedSubview(self.tableView)
-//        configureMapLocationView()
     }
     
     private func configureConstraints() {
@@ -80,12 +79,15 @@ class PlaceDetailsView: UIView {
     
     func configure(with viewModel: PlaceDetailsViewModel) {
         tableView.dataSource = viewModel.place as? UITableViewDataSource
+        let mapView = MapLocationViewModel(coordinate: viewModel.place.coordinate, title: viewModel.place.name)
+        self.mapLocationView.configure(with: mapView)
     }
     
-    private func configureMapLocationView() {
-        let viewModel = MapLocationViewModel(coordinate: self.place.coordinate, title: self.place.name)
-        self.mapLocationView.configure(with: viewModel)
-    }
+//    private func configureMapLocationView() {
+//        let place: Place = Place()
+//        let viewModel = MapLocationViewModel(coordinate: place.coordinate, title: place.name)
+//        self.mapLocationView.configure(with: viewModel)
+//    }
 }
 
 // MARK: - TableViewDataSource
