@@ -60,8 +60,8 @@ class NotificationsPermissionView: UIView, ViewProtocol {
         return subtitle
     }()
     
-    private let giveNotificationPermission: ButtonView = {
-        let buttonView = ButtonView()
+    private lazy var giveNotificationPermission: ButtonView = {
+        let buttonView = ButtonView(self)
         buttonView.translatesAutoresizingMaskIntoConstraints = false
         
         return buttonView
@@ -76,7 +76,7 @@ class NotificationsPermissionView: UIView, ViewProtocol {
     init(_ delegate: NotificationsPermissionDelegate) {
         self.delegate = delegate
         super.init(frame: .zero)
-        
+
         self.configureView()
     }
     
@@ -84,11 +84,7 @@ class NotificationsPermissionView: UIView, ViewProtocol {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Functions
-    
-    @objc func tappedNotificationPermission() {
-        delegate?.didSelectNotificationPermission()
-    }
+    // MARK: - Public Functions
     
     func configureSubviews() {
         addSubview(stackView)
@@ -119,8 +115,14 @@ class NotificationsPermissionView: UIView, ViewProtocol {
         titleLabel.text = viewModel.title
         subtitleLabel.text = viewModel.subtitle
         giveNotificationPermission.configure(with: viewModel.button)
-        
-        giveNotificationPermission.addAction(self,
-                                    action: #selector(tappedNotificationPermission), for: .touchUpInside)
+    }
+}
+
+// MARK: - Extension ButtonViewDelegate
+
+extension NotificationsPermissionView: ButtonViewDelegate {
+    
+    func didPressButton() {
+        delegate?.didSelectNotificationPermission()
     }
 }

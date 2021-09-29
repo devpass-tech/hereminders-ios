@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol ButtonViewDelegate: AnyObject {
+    
+    func didPressButton()
+}
+
 final class ButtonView: UIView {
     
     // MARK: - Propriedades
@@ -19,15 +24,24 @@ final class ButtonView: UIView {
         button.layer.cornerRadius = 4
         button.setTitleColor(UIColor.white, for: UIControl.State.normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         return button
     }()
     
+    // MARK: - Private Properties
+    
+    weak var delegate: ButtonViewDelegate?
+    
     // MARK: - Init
     
-    init() {
-        
+    init(_ delegate: ButtonViewDelegate) {
+        self.delegate = delegate
         super.init(frame: .zero)
-		
+          configureView()
+    }
+    
+    init() {
+        super.init(frame: .zero)
 		  configureView()
     }
     
@@ -37,14 +51,15 @@ final class ButtonView: UIView {
 		  configureView()
     }
     
-    // MARK: - ViewCode
+    // MARK: - Public Functions
     
     func configure(with viewModel: ButtonViewModel) {
         self.button.setTitle(viewModel.titleButton, for: UIControl.State.normal)
     }
     
-    func addAction(_ target: Any?, action: Selector, for controlEvents: UIControl.Event) {
-        self.button.addTarget(target, action: action, for: controlEvents)
+    @objc
+    func buttonPressed() {
+        self.delegate?.didPressButton()
     }
 }
 

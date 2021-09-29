@@ -45,7 +45,21 @@ final class HomeViewController: UIViewController {
         self.bindViewModel()
         self.configureView()
         self.addNotificationObservers()
-        self.displayNotificationsPermission()
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        appDelegate.isPermissionEnabled { result in
+            if result == false {
+                DispatchQueue.main.sync {
+                    self.navigationController?.present(NotificationsPermissionViewController(), animated: true)
+                }
+            }
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        self.displayNotificationsPermission()
     }
 
     func addNotificationObservers() {
@@ -143,7 +157,26 @@ final class HomeViewController: UIViewController {
     }
     
     private func displayNotificationsPermission() {
-        self.navigationController?.present(NotificationsPermissionViewController(), animated: true)
+        getPermission()
+    }
+    
+    func getPermission() {
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(didBecomeActiveNotification),
+            name: UIApplication.didBecomeActiveNotification, object: nil)
+    }
+    
+    @objc
+    private func didBecomeActiveNotification(_ application: UIApplication) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        appDelegate.isPermissionEnabled { result in
+            if result == false {
+                DispatchQueue.main.sync {
+                    self.navigationController?.present(NotificationsPermissionViewController(), animated: true)
+                }
+            }
+        }
     }
 
     @objc func didTapOnSettingsButton() {

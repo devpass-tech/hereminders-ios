@@ -11,16 +11,48 @@ import UserNotifications
 extension AppDelegate {
 
     func requestNotificationsAuthorization() {
-
         self.notificationCenter.delegate = self
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
         self.notificationCenter.requestAuthorization(options: options) { granted, error in }
     }
     
-    func permissionDenied(completion: @escaping (Bool, Error?) -> Void) {
+    func isPermissionNotDetermined(completion: @escaping (Bool) -> Void) {
         self.notificationCenter.getNotificationSettings { settings in
-            if settings.authorizationStatus == .denied {
-                completion(true, nil)
+            if settings.authorizationStatus == .notDetermined || settings.authorizationStatus == .denied {
+                print("==== NAO DETERMINADO")
+//                self.requestNotificationsAuthorization()
+                completion(true)
+            }
+        }
+    }
+    
+    func isPermissionEnabled(completion: @escaping (Bool) -> Void) {
+        self.notificationCenter.getNotificationSettings { settings in
+            if settings.authorizationStatus == .authorized {
+                completion(true)
+            } else {
+                completion(false)
+            }
+        }
+    }
+    
+    func currentPermission(completion: @escaping (Bool) -> Void) {
+        self.notificationCenter.getNotificationSettings { settings in
+            switch settings.authorizationStatus {
+            case .authorized, .provisional:
+                print("==== AUTORIZADO")
+                completion(true)
+            case .denied:
+                print("==== NEGADO")
+                completion(false)
+            case .notDetermined:
+                print("==== NAO DETERMINADO")
+                completion(false)
+            case .ephemeral:
+                print("==== AUTORIZADO")
+                completion(true)
+            @unknown default:
+                break
             }
         }
     }

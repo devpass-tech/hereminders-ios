@@ -14,7 +14,7 @@ class NotificationsPermissionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        permissionDenied()
+
     }
     
     override func loadView() {
@@ -36,16 +36,6 @@ class NotificationsPermissionViewController: UIViewController {
         self.view = view
     }
     
-    private func permissionDenied() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        appDelegate.permissionDenied { result, _ in
-            print("DEBUG: \(result)")
-            guard result else { return }
-            print("DEBUG: Permissao negada")
-            self.proceedToAppPrivacySettings()
-        }
-    }
-    
     private func proceedToAppPrivacySettings() {
         guard let url = URL(
                 string: UIApplication.openSettingsURLString),
@@ -62,6 +52,51 @@ extension NotificationsPermissionViewController: NotificationsPermissionDelegate
     
     func didSelectNotificationPermission() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        appDelegate.requestNotificationsAuthorization()
+//        appDelegate.requestNotificationsAuthorization()
+//        self.dismiss(animated: true)
+        
+//        appDelegate.isPermissionNotDetermined { result in
+//
+//            if result {
+//                DispatchQueue.main.async {
+//                    appDelegate.requestNotificationsAuthorization()
+//                    self.dismiss(animated: true)
+//                }
+//            } else {
+//                DispatchQueue.main.async {
+//                    self.proceedToAppPrivacySettings()
+//                    self.dismiss(animated: true)
+//                }
+//            }
+//        }
+        
+        appDelegate.isPermissionNotDetermined { result in
+
+            if !result {
+                DispatchQueue.main.async {
+                    self.proceedToAppPrivacySettings()
+//                    self.dismiss(animated: true)
+                }
+            } else {
+                appDelegate.requestNotificationsAuthorization()
+//                self.dismiss(animated: true)
+            }
+        }
     }
 }
+
+
+
+
+// To do
+
+//if settings.authorizationStatus == .notDetermined {
+//    appDelegate.requestNotificationsAuthorization()
+//    self.dismiss(animated: true)
+//    return
+//}
+
+//if settings.authorizationStatus == .denied {
+//    self.proceedToAppPrivacySettings()
+//    self.dismiss(animated: true)
+//}
