@@ -29,6 +29,8 @@ internal enum L10n {
     internal static let name = L10n.tr("Localizable", "PlaceDetails.Name")
     /// Type the place name
     internal static let namePlaceholder = L10n.tr("Localizable", "PlaceDetails.NamePlaceholder")
+    /// Radius
+    internal static let radius = L10n.tr("Localizable", "PlaceDetails.Radius")
     /// Place Details
     internal static let title = L10n.tr("Localizable", "PlaceDetails.Title")
   }

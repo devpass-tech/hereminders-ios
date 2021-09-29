@@ -58,7 +58,7 @@ final class PlaceDetailsViewController: UIViewController {
 
     private func configureMapLocationView() {
 
-        let viewModel = MapLocationViewModel(coordinate: self.place.coordinate, title: self.place.name)
+        let viewModel = MapLocationViewModel(coordinate: self.place.coordinate, title: self.place.name, radius: self.place.radius)
         self.mapLocationView.configure(with: viewModel)
     }
 }
@@ -66,8 +66,9 @@ final class PlaceDetailsViewController: UIViewController {
 extension PlaceDetailsViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-
-        return 2
+        
+        //
+        return 3
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,6 +83,8 @@ extension PlaceDetailsViewController: UITableViewDataSource {
             return self.nameCell(inTableView: tableView, forIndexPath: indexPath)
         case 1:
             return self.addressCell(inTableView: tableView, forIndexPath: indexPath)
+        case 2:
+            return self.radiusCell(inTableView: tableView, forIndexPath: indexPath)
         default:
             return UITableViewCell()
         }
@@ -105,6 +108,14 @@ extension PlaceDetailsViewController: UITableViewDataSource {
         cell?.textLabel?.text = self.place.address
         return cell!
     }
+    //
+    func radiusCell(inTableView tableView: UITableView, forIndexPath indexPath: IndexPath) -> RadiusTableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RadiusCell") as? RadiusTableViewCell ?? RadiusTableViewCell()
+        let cellModel = RadiusTableViewCellModel(value: self.place.radius)//indexPath.row)
+        cell.configure(with: cellModel, andDelegate: self)
+        return cell
+    }
+    
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
@@ -113,6 +124,8 @@ extension PlaceDetailsViewController: UITableViewDataSource {
             return L10n.Placedetails.name
         case 1:
             return L10n.Placedetails.address
+        case 2:
+            return L10n.Placedetails.radius
         default:
             return nil
         }
@@ -130,5 +143,14 @@ extension PlaceDetailsViewController: TextInputCellDelegate {
             self.configureMapLocationView()
             NotificationCenter.default.post(name: .editPlace, object: self.place)
         }
+    }
+}
+
+extension PlaceDetailsViewController: SliderCellDelegate {
+    func sliderCellDidChangeValue(_ value: Int) {
+        self.place.radius = value
+        self.dataController.saveContext()
+        self.configureMapLocationView()
+        NotificationCenter.default.post(name: .editPlace, object: self.place)
     }
 }

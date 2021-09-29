@@ -63,6 +63,7 @@ final class PlaceDataController: PlaceDataControllerType {
             place.latitude = latitude
             place.longitude = longitude
             place.address = address
+            place.radius = 100
         }
 
         self.dataController.saveContext()
