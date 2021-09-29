@@ -29,7 +29,7 @@ final class HomeViewController: UIViewController {
     }()
     
     let viewModel: HomeViewModel
-
+    
     private let disposeBag = DisposeBag()
     
     init(viewModel: HomeViewModel, delegate: HomeViewControllerDelegate) {
