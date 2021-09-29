@@ -40,11 +40,17 @@ final class PlaceDetailsViewController: UIViewController {
     private func configureView() {
 
         self.configureNavigationBar()
-//        self.configureMapLocationView()
+        self.getDetails()
     }
 
     private func configureNavigationBar() {
 
         self.navigationItem.title = L10n.PlaceDetails.title
+    }
+    
+    func getDetails() {
+        
+        let viewModel = PlaceDetailsViewModel(place: place)
+        placeDetailsView.configure(with: viewModel)
     }
 }
