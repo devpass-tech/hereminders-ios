@@ -53,10 +53,8 @@ extension NotificationsPermissionViewController: NotificationsPermissionDelegate
             DispatchQueue.main.async {
                 
                 if status == .notDetermined {
-                    
                     appDelegate.requestNotificationsAuthorization()
                 } else if status == .denied {
-                    
                     self.proceedToAppPrivacySettings()
                 }
                 
