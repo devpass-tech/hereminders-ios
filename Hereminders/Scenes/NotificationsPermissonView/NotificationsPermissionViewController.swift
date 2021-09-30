@@ -11,12 +11,7 @@ import UIKit
 class NotificationsPermissionViewController: UIViewController {
     
     // MARK: - View Lifecycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-    }
-    
     override func loadView() {
         configureView()
     }
@@ -52,51 +47,21 @@ extension NotificationsPermissionViewController: NotificationsPermissionDelegate
     
     func didSelectNotificationPermission() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-//        appDelegate.requestNotificationsAuthorization()
-//        self.dismiss(animated: true)
         
-//        appDelegate.isPermissionNotDetermined { result in
-//
-//            if result {
-//                DispatchQueue.main.async {
-//                    appDelegate.requestNotificationsAuthorization()
-//                    self.dismiss(animated: true)
-//                }
-//            } else {
-//                DispatchQueue.main.async {
-//                    self.proceedToAppPrivacySettings()
-//                    self.dismiss(animated: true)
-//                }
-//            }
-//        }
-        
-        appDelegate.isPermissionNotDetermined { result in
-
-            if !result {
-                DispatchQueue.main.async {
+        appDelegate.notificationStatus { status in
+            
+            DispatchQueue.main.async {
+                
+                if status == .notDetermined {
+                    
+                    appDelegate.requestNotificationsAuthorization()
+                } else if status == .denied {
+                    
                     self.proceedToAppPrivacySettings()
-//                    self.dismiss(animated: true)
                 }
-            } else {
-                appDelegate.requestNotificationsAuthorization()
-//                self.dismiss(animated: true)
+                
+                self.dismiss(animated: true)
             }
         }
     }
 }
-
-
-
-
-// To do
-
-//if settings.authorizationStatus == .notDetermined {
-//    appDelegate.requestNotificationsAuthorization()
-//    self.dismiss(animated: true)
-//    return
-//}
-
-//if settings.authorizationStatus == .denied {
-//    self.proceedToAppPrivacySettings()
-//    self.dismiss(animated: true)
-//}

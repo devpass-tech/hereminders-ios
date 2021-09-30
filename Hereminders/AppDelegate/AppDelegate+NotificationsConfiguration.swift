@@ -16,47 +16,12 @@ extension AppDelegate {
         self.notificationCenter.requestAuthorization(options: options) { granted, error in }
     }
     
-    func isPermissionNotDetermined(completion: @escaping (Bool) -> Void) {
+    func notificationStatus(completion: @escaping (UNAuthorizationStatus) -> Void) {
         self.notificationCenter.getNotificationSettings { settings in
-            if settings.authorizationStatus == .notDetermined || settings.authorizationStatus == .denied {
-                print("==== NAO DETERMINADO")
-//                self.requestNotificationsAuthorization()
-                completion(true)
-            }
+            completion(settings.authorizationStatus)
         }
     }
     
-    func isPermissionEnabled(completion: @escaping (Bool) -> Void) {
-        self.notificationCenter.getNotificationSettings { settings in
-            if settings.authorizationStatus == .authorized {
-                completion(true)
-            } else {
-                completion(false)
-            }
-        }
-    }
-    
-    func currentPermission(completion: @escaping (Bool) -> Void) {
-        self.notificationCenter.getNotificationSettings { settings in
-            switch settings.authorizationStatus {
-            case .authorized, .provisional:
-                print("==== AUTORIZADO")
-                completion(true)
-            case .denied:
-                print("==== NEGADO")
-                completion(false)
-            case .notDetermined:
-                print("==== NAO DETERMINADO")
-                completion(false)
-            case .ephemeral:
-                print("==== AUTORIZADO")
-                completion(true)
-            @unknown default:
-                break
-            }
-        }
-    }
-
     func configureNotifications() {
 
         let doneAction = UNNotificationAction(identifier: "com.hereminders.local-notification.done",
@@ -71,8 +36,6 @@ extension AppDelegate {
 
         let categories = Set(arrayLiteral: category)
         self.notificationCenter.setNotificationCategories(categories)
-
-//        self.requestNotificationsAuthorization()
     }
 }
 
