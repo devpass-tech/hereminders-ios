@@ -6,7 +6,6 @@
 //  Copyright © 2021 Rodrigo Borges. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 protocol PlaceDetailsViewProtocol: AnyObject {
@@ -61,25 +60,6 @@ class PlaceDetailsView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func configureView() {
-        
-        self.backgroundColor = .white
-        self.addSubview(self.stackView)
-        self.stackView.addArrangedSubview(self.mapLocationView)
-        self.stackView.addArrangedSubview(self.tableView)
-    }
-    
-    private func configureConstraints() {
-        
-        NSLayoutConstraint.activate([
-            self.stackView.topAnchor.constraint(equalTo: topAnchor),
-            self.stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            self.stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            self.mapLocationView.heightAnchor.constraint(equalToConstant: 200),
-            self.tableView.heightAnchor.constraint(equalToConstant: 608)
-        ])
     }
     
     func configure(with viewModel: PlaceDetailsViewModel) {
@@ -158,3 +138,23 @@ extension PlaceDetailsView: TextInputCellDelegate {
             }
         }
     }
+//MARK: -View Protocol
+extension PlaceDetailsView: ViewProtocol {
+    func configureSubviews() {
+        self.backgroundColor = .white
+        self.addSubview(self.stackView)
+        self.stackView.addArrangedSubview(self.mapLocationView)
+        self.stackView.addArrangedSubview(self.tableView)
+    }
+    
+    func configureConstraints() {
+        
+        NSLayoutConstraint.activate([
+            self.stackView.topAnchor.constraint(equalTo: topAnchor),
+            self.stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            self.stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            self.mapLocationView.heightAnchor.constraint(equalToConstant: 200),
+            self.tableView.heightAnchor.constraint(equalToConstant: 608)
+        ])
+    }
+}
