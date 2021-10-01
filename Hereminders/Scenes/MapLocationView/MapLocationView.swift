@@ -33,10 +33,6 @@ final class MapLocationView: UIView {
     public func configure(with viewModel: MapLocationViewModel) {
         let region = MKCoordinateRegion(center: viewModel.coordinate, span: .default)
         self.mapView.setRegion(region, animated: true)
-
-        let pin = MKPointAnnotation()
-        pin.title = viewModel.title
-        pin.coordinate = viewModel.coordinate
         
         let circle = MKCircle(center: viewModel.coordinate, radius: CLLocationDistance(viewModel.radius))
         self.mapView.addOverlay(circle)

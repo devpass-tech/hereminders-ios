@@ -66,8 +66,7 @@ final class PlaceDetailsViewController: UIViewController {
 extension PlaceDetailsViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        
-        //
+
         return 3
     }
 
@@ -108,10 +107,10 @@ extension PlaceDetailsViewController: UITableViewDataSource {
         cell?.textLabel?.text = self.place.address
         return cell!
     }
-    //
+
     func radiusCell(inTableView tableView: UITableView, forIndexPath indexPath: IndexPath) -> RadiusTableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RadiusCell") as? RadiusTableViewCell ?? RadiusTableViewCell()
-        let cellModel = RadiusTableViewCellModel(value: self.place.radius)//indexPath.row)
+        let cellModel = RadiusTableViewCellModel(value: self.place.radius)
         cell.configure(with: cellModel, andDelegate: self)
         return cell
     }
@@ -146,8 +145,9 @@ extension PlaceDetailsViewController: TextInputCellDelegate {
     }
 }
 
-extension PlaceDetailsViewController: SliderCellDelegate {
-    func sliderCellDidChangeValue(_ value: Int) {
+extension PlaceDetailsViewController: RadiusTableViewCellDelegate {
+
+    func didChangeSliderValue(to value: Int) {
         self.place.radius = value
         self.dataController.saveContext()
         self.configureMapLocationView()

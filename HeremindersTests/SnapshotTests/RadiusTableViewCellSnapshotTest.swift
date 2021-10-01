@@ -10,6 +10,12 @@ import XCTest
 import SnapshotTesting
 @testable import Hereminders
 
+class RadiusTableViewCellDelegateMock: RadiusTableViewCellDelegate {
+    func didChangeSliderValue(to value: Int) {
+
+    }
+}
+
 class RadiusTableViewCellSnapshotTest: XCTestCase {
 
     func testRadiusTableViewCell() throws {
@@ -18,7 +24,7 @@ class RadiusTableViewCellSnapshotTest: XCTestCase {
 
         let radiusTableViewCell = RadiusTableViewCell()
         
-        radiusTableViewCell.configure(with: viewModel)
+        radiusTableViewCell.configure(with: viewModel, andDelegate: RadiusTableViewCellDelegateMock())
         
         assertSnapshot(matching: radiusTableViewCell , as: Snapshotting.image(size: CGSize(width: 100, height: 100)), record: false)
     }
