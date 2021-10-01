@@ -11,11 +11,11 @@ import UIKit
 struct CircularImageViewModel {
   // MARK: Lifecycle
 
-  init(with image: Image?) {
-    self.image = image ?? Image(named: "no-image")!
+  init(with image: UIImage?) {
+    self.image = image ?? UIImage(named: "no-image")!
   }
 
   // MARK: Internal
 
-  let image: Image
+  let image: UIImage
 }

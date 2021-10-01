@@ -39,8 +39,8 @@ class HomeCoordinator: CoordinatorType {
                                       reminderController: self.reminderController)
         self.viewModel = viewModel
         
-        let viewController = HomeViewController(viewModel: viewModel)
-        viewController.delegate = self
+        let viewController = HomeViewController(viewModel: viewModel, delegate: self)
+        //viewController.delegate = self
         self.navigationController.addChild(viewController)
     }
 

@@ -20,4 +20,3 @@ class PlaceAnnotation: NSObject, MKAnnotation {
         self.coordinate = place.coordinate
     }
 }
-
