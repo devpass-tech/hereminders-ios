@@ -11,12 +11,17 @@ import UserNotifications
 extension AppDelegate {
 
     func requestNotificationsAuthorization() {
-
         self.notificationCenter.delegate = self
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
         self.notificationCenter.requestAuthorization(options: options) { granted, error in }
     }
-
+    
+    func notificationStatus(completion: @escaping (UNAuthorizationStatus) -> Void) {
+        self.notificationCenter.getNotificationSettings { settings in
+            completion(settings.authorizationStatus)
+        }
+    }
+    
     func configureNotifications() {
 
         let doneAction = UNNotificationAction(identifier: "com.hereminders.local-notification.done",
@@ -31,8 +36,6 @@ extension AppDelegate {
 
         let categories = Set(arrayLiteral: category)
         self.notificationCenter.setNotificationCategories(categories)
-
-        self.requestNotificationsAuthorization()
     }
 }
 

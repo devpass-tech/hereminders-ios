@@ -9,14 +9,19 @@
 import Foundation
 import UIKit
 
+protocol NotificationsPermissionDelegate: AnyObject {
+    
+    func didSelectNotificationPermission()
+}
+
 class NotificationsPermissionView: UIView, ViewProtocol {
 
     // MARK: - UIElements
+    
     private let stackView: UIStackView = {
         let stack = UIStackView(frame: .zero)
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
-        stack.distribution = .fillProportionally
         stack.spacing = 16
         stack.alignment = .center
         stack.backgroundColor = .white
@@ -55,16 +60,23 @@ class NotificationsPermissionView: UIView, ViewProtocol {
         return subtitle
     }()
     
-    private let addNewPlaceButton: ButtonView = {
-        let buttonView = ButtonView()
+    private lazy var giveNotificationPermission: ButtonView = {
+        let buttonView = ButtonView(self)
         buttonView.translatesAutoresizingMaskIntoConstraints = false
         
         return buttonView
     }()
     
-    override init(frame: CGRect = .zero) {
-        super.init(frame: frame)
-        
+    // MARK: - Private Properties
+    
+    private unowned let delegate: NotificationsPermissionDelegate?
+    
+    // MARK: - Inits
+    
+    init(_ delegate: NotificationsPermissionDelegate) {
+        self.delegate = delegate
+        super.init(frame: .zero)
+
         self.configureView()
     }
     
@@ -72,38 +84,45 @@ class NotificationsPermissionView: UIView, ViewProtocol {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Functions
+    // MARK: - Public Functions
+    
     func configureSubviews() {
         addSubview(stackView)
         stackView.addArrangedSubview(iconImageView)
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(subtitleLabel)
-        stackView.addArrangedSubview(addNewPlaceButton)
+        stackView.addArrangedSubview(giveNotificationPermission)
         
-        stackView.backgroundColor = .white
+        self.backgroundColor = .white
     }
     
     func configureConstraints() {
         NSLayoutConstraint.activate([
-            // StackView
-            stackView.topAnchor.constraint(equalTo: topAnchor),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: centerYAnchor),
             
-            // IconImageView
             iconImageView.heightAnchor.constraint(equalToConstant: 50),
             iconImageView.widthAnchor.constraint(equalToConstant: 50),
             
-            // AddNewPlaceButton
-            addNewPlaceButton.widthAnchor.constraint(equalToConstant: 343),
-            addNewPlaceButton.heightAnchor.constraint(equalToConstant: 44)
+            giveNotificationPermission.widthAnchor.constraint(equalToConstant: 343),
+            giveNotificationPermission.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
     
     func configure(with viewModel: NotificationsPermissonViewModel) {
         titleLabel.text = viewModel.title
         subtitleLabel.text = viewModel.subtitle
-        addNewPlaceButton.configure(with: viewModel.button)
+        giveNotificationPermission.configure(with: viewModel.button)
+    }
+}
+
+// MARK: - Extension ButtonViewDelegate
+
+extension NotificationsPermissionView: ButtonViewDelegate {
+    
+    func didPressButton() {
+        delegate?.didSelectNotificationPermission()
     }
 }
