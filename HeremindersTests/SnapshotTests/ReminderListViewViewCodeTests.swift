@@ -19,7 +19,7 @@ class ReminderListViewViewCodeTests: XCTestCase {
       ReminderItemModel(description: "Tirar roupas do varal", event: 0),
       ReminderItemModel(description: "Desligar as luzes", event: 1),
     ]
-    let buttonVM = ButtonViewModel(titleButton: L10n.Reminderlist.addReminder)
+    let buttonVM = ButtonViewModel(titleButton: L10n.ReminderList.addReminder)
 
     let viewModel = ReminderListViewViewCodeViewModel(titleSubtitleViewModel: titleSubtitleVM,
                                                       remindersViewModel: reminders,
@@ -30,6 +30,6 @@ class ReminderListViewViewCodeTests: XCTestCase {
     sut.configure(with: viewModel)
 
     let snapshopSize = CGSize(width: 375, height: 600)
-    assertSnapshot(matching: sut, as: .image(size: snapshopSize))
+    assertSnapshot(matching: sut, as: .image(size: snapshopSize), record: false)
   }
 }

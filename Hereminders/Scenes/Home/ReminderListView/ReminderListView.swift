@@ -99,14 +99,14 @@ final class ReminderListView: UIView {
         self.listView.isHidden = true
         self.emptyView.isHidden = false
 
-        self.addReminderButton.setTitle(L10n.Reminderlist.addReminder, for: .normal)
+        self.addReminderButton.setTitle(L10n.ReminderList.addReminder, for: .normal)
         self.addReminderButton.titleLabel?.lineBreakMode = .byWordWrapping
-        self.selectPlaceLabel.text = L10n.Reminderlist.selectOrAddPlace
-        self.addNewPlaceButton.setTitle(L10n.Reminderlist.addNewPlace, for: .normal)
-        self.titleLabel.text = L10n.Reminderlist.welcome
+        self.selectPlaceLabel.text = L10n.ReminderList.selectOrAddPlace
+        self.addNewPlaceButton.setTitle(L10n.ReminderList.addNewPlace, for: .normal)
+        self.titleLabel.text = L10n.ReminderList.welcome
         self.titleLabel.font = UIFont.boldSystemFont(ofSize: 21)
 
-        self.emptyListLabel.text = L10n.Reminderlist.noHereminders
+        self.emptyListLabel.text = L10n.ReminderList.noHereminders
     }
 
     private func configureTableView() {
@@ -155,7 +155,7 @@ extension ReminderListView: UITableViewDataSource {
         let reminder = viewModel.reminders[indexPath.row]
 
         cell?.textLabel?.text = reminder.desc
-        cell?.detailTextLabel?.text = reminder.event == 0 ? L10n.Reminderlist.onEntry : L10n.Reminderlist.onExit
+        cell?.detailTextLabel?.text = reminder.event == 0 ? L10n.ReminderList.onEntry : L10n.ReminderList.onExit
 
         return cell!
     }
@@ -176,7 +176,7 @@ extension ReminderListView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
         let doneAction = UIContextualAction(style: .normal,
-                                            title: L10n.Reminderlist.done,
+                                            title: L10n.ReminderList.done,
                                             handler: { [weak self] action, view, completionHandler in
 
             self?.handleDoneAction(at: indexPath)
