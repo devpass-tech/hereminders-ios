@@ -20,7 +20,7 @@ class RadiusTableViewCellSnapshotTest: XCTestCase {
         
         radiusTableViewCell.configure(with: viewModel)
         
-        assertSnapshot(matching: radiusTableViewCell , as: Snapshotting.image(size: CGSize(width: 100, height: 100)))
+        assertSnapshot(matching: radiusTableViewCell , as: Snapshotting.image(size: CGSize(width: 100, height: 100)), record: false)
     }
 
 }

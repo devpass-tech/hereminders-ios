@@ -3,9 +3,10 @@ platform :ios, '14.5'
 target 'Hereminders' do
   use_frameworks!
 
-  pod 'RxSwift'
+  pod 'RxSwift' 
   pod 'SwiftGen'
   pod 'SwiftLint'
+ 
 
   target 'HeremindersTests' do
     inherit! :search_paths

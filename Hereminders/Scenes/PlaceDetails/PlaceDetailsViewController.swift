@@ -44,7 +44,7 @@ final class PlaceDetailsViewController: UIViewController {
 
     private func configureNavigationBar() {
 
-        self.navigationItem.title = L10n.Placedetails.title
+        self.navigationItem.title = L10n.PlaceDetails.title
     }
 
     private func configureTableView() {
@@ -92,7 +92,7 @@ extension PlaceDetailsViewController: UITableViewDataSource {
 
     func nameCell(inTableView tableView: UITableView, forIndexPath indexPath: IndexPath) -> TextInputTableViewCell {
         let cell: TextInputTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.configure(withPlaceholder: L10n.Placedetails.namePlaceholder, andDelegate: self)
+        cell.configure(withPlaceholder: L10n.PlaceDetails.namePlaceholder, andDelegate: self)
         cell.textField.text = self.place.name
         return cell
     }
@@ -121,11 +121,11 @@ extension PlaceDetailsViewController: UITableViewDataSource {
 
         switch section {
         case 0:
-            return L10n.Placedetails.name
+            return L10n.PlaceDetails.name
         case 1:
-            return L10n.Placedetails.address
+            return L10n.PlaceDetails.address
         case 2:
-            return L10n.Placedetails.radius
+            return L10n.PlaceDetails.radius
         default:
             return nil
         }

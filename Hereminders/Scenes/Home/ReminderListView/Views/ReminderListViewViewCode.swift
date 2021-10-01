@@ -156,7 +156,7 @@ extension ReminderListViewViewCode: UITableViewDataSource {
     }
 
     cell?.textLabel?.text = reminder.description
-    cell?.detailTextLabel?.text = reminder.event == 0 ? L10n.Reminderlist.onEntry : L10n.Reminderlist.onExit
+    cell?.detailTextLabel?.text = reminder.event == 0 ? L10n.ReminderList.onEntry : L10n.ReminderList.onExit
     return cell!
   }
 }

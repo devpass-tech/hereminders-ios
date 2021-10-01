@@ -17,7 +17,6 @@ struct PlaceResult {
 }
 
 protocol PlaceSearchViewControllerDelegate: AnyObject {
-
     func didSelectPlace(_ place: PlaceResult)
     func didCancel()
 }
@@ -35,7 +34,7 @@ class PlaceSearchViewController: UIViewController {
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
-        searchController.searchBar.placeholder = L10n.Placesearch.namePlaceholder
+        searchController.searchBar.placeholder = L10n.PlaceSearch.namePlaceholder
         return searchController
     }()
 
@@ -57,7 +56,6 @@ class PlaceSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         configureView()
     }
 
@@ -71,7 +69,6 @@ class PlaceSearchViewController: UIViewController {
     }
 
     func configureView() {
-
         configureNavigationBar()
     }
 
@@ -86,7 +83,7 @@ class PlaceSearchViewController: UIViewController {
         self.navigationItem.searchController = self.searchController
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationItem.hidesSearchBarWhenScrolling = false
-        self.navigationItem.title = L10n.Placesearch.title
+        self.navigationItem.title = L10n.PlaceSearch.title
     }
 
     @objc func didTapOnCloseButton() {

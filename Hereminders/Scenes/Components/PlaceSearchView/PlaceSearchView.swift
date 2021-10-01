@@ -45,7 +45,6 @@ class PlaceSearchView: UIView {
 	// MARK: - Initialize
 	override init(frame: CGRect = .zero) {
 		super.init(frame: frame)
-		
 		configureView()
 	}
 		
@@ -71,8 +70,7 @@ class PlaceSearchView: UIView {
 		self.mainView.isHidden = true
 		self.activityIndicator.stopAnimating()
 		self.tableView.reloadData()
-	}
-	
+    }
 }
 
 // MARK: - Extension ViewProtocol
@@ -97,7 +95,7 @@ extension PlaceSearchView: ViewProtocol {
 			mainView.bottomAnchor.constraint(equalTo: tableView.bottomAnchor),
 			
 			activityIndicator.centerYAnchor.constraint(equalTo: mainView.centerYAnchor),
-			activityIndicator.centerXAnchor.constraint(equalTo: mainView.centerXAnchor),
+			activityIndicator.centerXAnchor.constraint(equalTo: mainView.centerXAnchor)
 		])
 	}
 }
@@ -106,7 +104,6 @@ extension PlaceSearchView: ViewProtocol {
 extension PlaceSearchView: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		
 		return self.delegate?.numberOfRows() ?? 0
 	}
 	
@@ -128,8 +125,7 @@ extension PlaceSearchView: UITableViewDataSource {
 // MARK: - Extension UITableViewDelegate
 extension PlaceSearchView: UITableViewDelegate {
 	
-	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {		
 		tableView.deselectRow(at: indexPath, animated: true)
 		self.delegate?.didSelectRowAt(indexPath)
 	}

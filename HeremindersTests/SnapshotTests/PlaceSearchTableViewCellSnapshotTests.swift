@@ -24,10 +24,11 @@ class PlaceSearchTableViewCellSnapshotTests: XCTestCase {
         let sut = PlaceSearchTableViewCell()
         sut.backgroundColor = .systemBackground
         
-        let titleSubtitleViewModel = TitleSubtitleViewModel(title: "Nome do Local", subtitle: "rua: nome da rua, numero, bairro, cidade, país", urlLinkedin: "")
+
+        let titleSubtitleViewModel = TitleSubtitleViewModel(title: "Nome do Local", subtitle: "rua: nome da rua, numero, bairro, cidade, país", urlLinkedin: "url")
         let placeSearchTableViewCellViewModel = PlaceSearchTableViewCellViewModel(titleSubtitleViewVM: titleSubtitleViewModel)
         sut.configure(with: placeSearchTableViewCellViewModel)
         
-        assertSnapshot(matching: sut, as: Snapshotting.image(size: tableViewCellSize))
+        assertSnapshot(matching: sut, as: Snapshotting.image(size: tableViewCellSize), record: false)
     }
 }

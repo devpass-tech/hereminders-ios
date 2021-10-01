@@ -15,6 +15,14 @@ extension AppDelegate {
         UINavigationBar.appearance().tintColor = UIColor.heremindersBlue
         UINavigationBar.appearance().isTranslucent = false
 
+        if #available(iOS 15, *) {
+
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor.white
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        }
+
         UISegmentedControl.appearance().tintColor = UIColor.heremindersBlue
 
         Button.appearance().cornerRadius = 4.0
