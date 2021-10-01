@@ -12,7 +12,7 @@ import RxSwift
 final class PlaceListViewModel {
 
     private let placeController: PlaceDataControllerType
-    private lazy var places: [Place] = self.placeController.allPlaces()
+    lazy var places: [Place] = self.placeController.allPlaces()
     lazy var placesSubject = PublishSubject<Void>()
 
     var placeCount: Int {
