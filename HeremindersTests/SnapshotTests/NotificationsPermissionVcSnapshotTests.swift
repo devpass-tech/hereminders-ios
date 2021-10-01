@@ -10,6 +10,12 @@ import XCTest
 import SnapshotTesting
 @testable import Hereminders
 
+class NotificationsPermissionDelegateMock: NotificationsPermissionDelegate {
+    func didSelectNotificationPermission() {
+
+    }
+}
+
 class NotificationsPermissionVcSnapshotTests: XCTestCase {
     
     
@@ -19,9 +25,9 @@ class NotificationsPermissionVcSnapshotTests: XCTestCase {
     
     
     func testNotificationsPermissions() {
-        let frame = CGRect(x: 0, y: 0, width: 375, height: 200)
-        let sut = NotificationsPermissionView(frame: frame )
+        let size = CGSize(width: 375, height: 200)
+        let sut = NotificationsPermissionView(NotificationsPermissionDelegateMock())
         sut.configure(with: viewModelMock)
-        assertSnapshot(matching: sut, as: .image , record: false)
+        assertSnapshot(matching: sut, as: Snapshotting.image(size: size), record: false)
     }
 }
