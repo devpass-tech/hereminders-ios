@@ -29,10 +29,11 @@ public class Place: NSManagedObject {
     @NSManaged public var longitude: Double
     @NSManaged public var reminders: NSSet?
     @NSManaged public var address: String
+    @NSManaged public var radius: Int
 }
 
 extension Place {
-
+    
     var coordinate: CLLocationCoordinate2D {
         
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
