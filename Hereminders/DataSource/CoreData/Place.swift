@@ -29,7 +29,7 @@ public class Place: NSManagedObject {
     @NSManaged public var longitude: Double
     @NSManaged public var reminders: NSSet?
     @NSManaged public var address: String
-    @NSManaged public var radius: Int
+    @NSManaged public var radius: Int32
 }
 
 extension Place {

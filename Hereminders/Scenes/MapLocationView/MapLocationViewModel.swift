@@ -12,9 +12,9 @@ import MapKit
 class MapLocationViewModel {
     var coordinate: CLLocationCoordinate2D
     var title: String
-    var radius: Int
+    var radius: Int32
 
-    init(coordinate: CLLocationCoordinate2D, title: String, radius: Int) {
+    init(coordinate: CLLocationCoordinate2D, title: String, radius: Int32) {
         self.coordinate = coordinate
         self.title = title
         self.radius = radius

@@ -5,7 +5,7 @@
         <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
-        <attribute name="radius" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="radius" optional="YES" attributeType="Integer 32" defaultValueString="100" usesScalarValueType="YES"/>
         <relationship name="reminders" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Reminder" inverseName="place" inverseEntity="Reminder"/>
     </entity>
     <entity name="Reminder" representedClassName="Reminder" syncable="YES">

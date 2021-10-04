@@ -10,5 +10,5 @@ import Foundation
 
 struct RadiusTableViewCellModel {
 
-    let value: Int
+    let value: Int32
 }
