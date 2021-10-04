@@ -52,6 +52,7 @@ final class HomeViewController: UIViewController {
         self.bindViewModel()
         self.configureView()
         self.addNotificationObservers()
+        self.displayNotificationsPermission()
     }
     
     func addNotificationObservers() {
@@ -146,6 +147,20 @@ final class HomeViewController: UIViewController {
         self.homeView.reminderListView.delegate = self
     }
     
+    private func displayNotificationsPermission() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        appDelegate.notificationStatus { status in
+            
+            DispatchQueue.main.async {
+                
+                if status == .denied || status == .notDetermined {
+                    self.navigationController?.present(NotificationsPermissionViewController(), animated: true)
+                }
+            }
+        }
+    }
+
     @objc func didTapOnSettingsButton() {
         
         self.delegate?.homeViewControllerWantsToOpenSettings()

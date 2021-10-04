@@ -39,6 +39,7 @@
 "PlaceDetails.Name" = "Nome";
 "PlaceDetails.Address" = "Endereço";
 "PlaceDetails.Title" = "Detalhes do Local";
+"PlaceDetails.Radius" = "Raio";
 
 "Settings.Title" = "Configurações";
 "Settings.ManagePlaces" = "Gerenciar locais";

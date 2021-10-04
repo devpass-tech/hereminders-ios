@@ -73,7 +73,8 @@ extension AppCoordinator: PlaceSearchCoordinatorDelegate {
         _ = self.placeController.addPlace(withName: result.name,
                                           latitude: result.coordinate.latitude,
                                           longitude: result.coordinate.longitude,
-                                          address: result.address)
+                                          address: result.address,
+                                          radius: 100)
 
         self.dismissViewController()
     }

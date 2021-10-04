@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14270.11" systemVersion="" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Place" representedClassName="Place" syncable="YES">
-        <attribute name="address" attributeType="String" syncable="YES"/>
-        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="reminders" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Reminder" inverseName="place" inverseEntity="Reminder" syncable="YES"/>
+        <attribute name="address" attributeType="String"/>
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="radius" optional="YES" attributeType="Integer 32" defaultValueString="100" usesScalarValueType="YES"/>
+        <relationship name="reminders" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Reminder" inverseName="place" inverseEntity="Reminder"/>
     </entity>
     <entity name="Reminder" representedClassName="Reminder" syncable="YES">
-        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="desc" attributeType="String" syncable="YES"/>
-        <attribute name="event" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="notificationIdentifier" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="radius" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="place" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="reminders" inverseEntity="Place" syncable="YES"/>
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="desc" attributeType="String"/>
+        <attribute name="event" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="notificationIdentifier" optional="YES" attributeType="String"/>
+        <attribute name="radius" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="place" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="reminders" inverseEntity="Place"/>
     </entity>
     <elements>
-        <element name="Place" positionX="-63" positionY="18" width="128" height="120"/>
+        <element name="Place" positionX="-63" positionY="18" width="128" height="119"/>
         <element name="Reminder" positionX="144" positionY="18" width="128" height="135"/>
     </elements>
 </model>

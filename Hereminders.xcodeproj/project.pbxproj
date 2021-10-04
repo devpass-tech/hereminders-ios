@@ -22,6 +22,10 @@
 		71BDEEA626F266C7009BCB38 /* NotificationsPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDEEA526F266C7009BCB38 /* NotificationsPermissionView.swift */; };
 		71BDEEA826F26DA3009BCB38 /* NotificationsPermissonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDEEA726F26DA3009BCB38 /* NotificationsPermissonViewModel.swift */; };
 		71BDEEAE26F2C9CD009BCB38 /* NotificationsPermissionVcSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BDEEAD26F2C9CD009BCB38 /* NotificationsPermissionVcSnapshotTests.swift */; };
+		741B5D4F26FBDC310015F9C3 /* NotificationsPermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741B5D4E26FBDC310015F9C3 /* NotificationsPermissionViewController.swift */; };
+		71C30D702703A04A00538F72 /* PlaceListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C30D6E2703A04A00538F72 /* PlaceListViewViewModel.swift */; };
+		71C30D712703A04A00538F72 /* PlaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C30D6F2703A04A00538F72 /* PlaceListView.swift */; };
+		89B2AFC2AD9B6003B627FFD3 /* Pods_Hereminders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 150D92276C2DFA070189FDC0 /* Pods_Hereminders.framework */; };
 		9804F6AD2066D79300820153 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9804F6AC2066D79300820153 /* AppDelegate.swift */; };
 		9804F6B52066D79300820153 /* Hereminders.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9804F6B32066D79300820153 /* Hereminders.xcdatamodeld */; };
 		9804F6B72066D79300820153 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9804F6B62066D79300820153 /* Assets.xcassets */; };
@@ -52,7 +56,6 @@
 		9871B417214483460050C651 /* AppDelegate+ThemeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9871B416214483460050C651 /* AppDelegate+ThemeConfiguration.swift */; };
 		9871B4192144836A0050C651 /* AppDelegate+NotificationsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9871B4182144836A0050C651 /* AppDelegate+NotificationsConfiguration.swift */; };
 		9877BBEA20F1A824001D2688 /* PlaceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9877BBE820F1A824001D2688 /* PlaceListViewController.swift */; };
-		9877BBEB20F1A824001D2688 /* PlaceListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9877BBE920F1A824001D2688 /* PlaceListViewController.xib */; };
 		9877BBED20F1AA21001D2688 /* PlaceListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9877BBEC20F1AA21001D2688 /* PlaceListCoordinator.swift */; };
 		9877BBF120F1ADA1001D2688 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9877BBEF20F1ADA1001D2688 /* SettingsViewController.swift */; };
 		9877BBF420F1B009001D2688 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9877BBF320F1B009001D2688 /* SettingsCoordinator.swift */; };
@@ -222,6 +225,12 @@
 		71BDEEA526F266C7009BCB38 /* NotificationsPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPermissionView.swift; sourceTree = "<group>"; };
 		71BDEEA726F26DA3009BCB38 /* NotificationsPermissonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPermissonViewModel.swift; sourceTree = "<group>"; };
 		71BDEEAD26F2C9CD009BCB38 /* NotificationsPermissionVcSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPermissionVcSnapshotTests.swift; sourceTree = "<group>"; };
+		741B5D4E26FBDC310015F9C3 /* NotificationsPermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPermissionViewController.swift; sourceTree = "<group>"; };
+		71C30D6E2703A04A00538F72 /* PlaceListViewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceListViewViewModel.swift; sourceTree = "<group>"; };
+		71C30D6F2703A04A00538F72 /* PlaceListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceListView.swift; sourceTree = "<group>"; };
+		7D88789351E1BF3D95B871DD /* Pods_HeremindersTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeremindersTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C4F058DE6C0C2862A2BE666 /* Pods-HeremindersUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeremindersUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeremindersUITests/Pods-HeremindersUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9724BA3B22BE12DF38B2AB8B /* Pods-HeremindersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeremindersTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeremindersTests/Pods-HeremindersTests.debug.xcconfig"; sourceTree = "<group>"; };
 		83CE65643E7382E77EA384CA /* Pods-HeremindersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeremindersTests.debug.xcconfig"; path = "Target Support Files/Pods-HeremindersTests/Pods-HeremindersTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9804F6A92066D79300820153 /* Hereminders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hereminders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9804F6AC2066D79300820153 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -257,7 +266,6 @@
 		9871B416214483460050C651 /* AppDelegate+ThemeConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+ThemeConfiguration.swift"; sourceTree = "<group>"; };
 		9871B4182144836A0050C651 /* AppDelegate+NotificationsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+NotificationsConfiguration.swift"; sourceTree = "<group>"; };
 		9877BBE820F1A824001D2688 /* PlaceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListViewController.swift; sourceTree = "<group>"; };
-		9877BBE920F1A824001D2688 /* PlaceListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceListViewController.xib; sourceTree = "<group>"; };
 		9877BBEC20F1AA21001D2688 /* PlaceListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListCoordinator.swift; sourceTree = "<group>"; };
 		9877BBEF20F1ADA1001D2688 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9877BBF320F1B009001D2688 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
@@ -438,6 +446,7 @@
 			children = (
 				71BDEEA526F266C7009BCB38 /* NotificationsPermissionView.swift */,
 				71BDEEA726F26DA3009BCB38 /* NotificationsPermissonViewModel.swift */,
+				741B5D4E26FBDC310015F9C3 /* NotificationsPermissionViewController.swift */,
 			);
 			path = NotificationsPermissonView;
 			sourceTree = "<group>";
@@ -627,8 +636,9 @@
 		9877BBE720F1A7E8001D2688 /* PlaceList */ = {
 			isa = PBXGroup;
 			children = (
+				71C30D6F2703A04A00538F72 /* PlaceListView.swift */,
+				71C30D6E2703A04A00538F72 /* PlaceListViewViewModel.swift */,
 				9877BBE820F1A824001D2688 /* PlaceListViewController.swift */,
-				9877BBE920F1A824001D2688 /* PlaceListViewController.xib */,
 				9897153320F2D16400F976FE /* PlaceListViewModel.swift */,
 			);
 			path = PlaceList;
@@ -1153,6 +1163,7 @@
 				98DA12B72119147E0090CA2B /* README.md in Resources */,
 				98DA12B52119147E0090CA2B /* Appfile in Resources */,
 				98DCD2B720E1C4B700A49897 /* ReminderListView.xib in Resources */,
+				9877BBF220F1ADA1001D2688 /* SettingsViewController.xib in Resources */,
 				9877BBEB20F1A824001D2688 /* PlaceListViewController.xib in Resources */,
 				98D02AC920673F0700E8BC91 /* SegmentedControlTableViewCell.xib in Resources */,
 				98F1C9852066E33F0008FF57 /* TextInputTableViewCell.xib in Resources */,
@@ -1348,6 +1359,7 @@
 				9877BBF420F1B009001D2688 /* SettingsCoordinator.swift in Sources */,
 				9890C173206C4E55003C6F8D /* ReminderCoordinator.swift in Sources */,
 				989902C920FD85B600865079 /* PremiumCoordinator.swift in Sources */,
+				741B5D4F26FBDC310015F9C3 /* NotificationsPermissionViewController.swift in Sources */,
 				9877BBED20F1AA21001D2688 /* PlaceListCoordinator.swift in Sources */,
 				9807EB3420C9EEE800B5F7DA /* ReminderViewModel.swift in Sources */,
 				B16C833C26D82C92006AAF7B /* ContributorTableViewCell.swift in Sources */,
@@ -1405,7 +1417,9 @@
 				BCC5A11426D0246200A7F3B4 /* SegmentedControlView.swift in Sources */,
 				987AD731213E1FCB002F3D26 /* NotificationName+Extensions.swift in Sources */,
 				BC847BA026D5420D00373A49 /* ViewProtocol.swift in Sources */,
+				71C30D712703A04A00538F72 /* PlaceListView.swift in Sources */,
 				987AD733213F4537002F3D26 /* UIBarButtonItem+Extensions.swift in Sources */,
+				71C30D702703A04A00538F72 /* PlaceListViewViewModel.swift in Sources */,
 				BC02947626D913F60030F589 /* WelcomeView.swift in Sources */,
 				983341CB20DC561B006011CF /* PlaceSearchCoordinator.swift in Sources */,
 				9890C171206C4B16003C6F8D /* HomeCoordinator.swift in Sources */,

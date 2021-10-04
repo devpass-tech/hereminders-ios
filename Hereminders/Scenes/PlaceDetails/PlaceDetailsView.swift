@@ -42,6 +42,7 @@ class PlaceDetailsView: UIView {
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44.0
+        
         TextInputTableViewCell.registerXib(in: tableView)
 
         return tableView
@@ -64,7 +65,7 @@ class PlaceDetailsView: UIView {
     
     func configure(with viewModel: PlaceDetailsViewModel) {
         self.place = viewModel.place
-        let viewModelMap = MapLocationViewModel(coordinate: self.place!.coordinate, title: self.place!.name)
+        let viewModelMap = MapLocationViewModel(coordinate: self.place!.coordinate, title: self.place!.name, radius: viewModel.place.radius)
         self.mapLocationView.configure(with: viewModelMap)
         self.tableView.reloadData()
     }
@@ -74,7 +75,7 @@ class PlaceDetailsView: UIView {
 extension PlaceDetailsView: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
 
-        return 2
+        return 3
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -89,6 +90,8 @@ extension PlaceDetailsView: UITableViewDataSource {
             return self.nameCell(inTableView: tableView, forIndexPath: indexPath)
         case 1:
             return self.addressCell(inTableView: tableView, forIndexPath: indexPath)
+        case 2:
+            return self.radiusCell(inTableView: tableView, forIndexPath: indexPath)
         default:
             return UITableViewCell()
         }
@@ -113,6 +116,13 @@ extension PlaceDetailsView: UITableViewDataSource {
         return cell!
     }
 
+    func radiusCell(inTableView tableView: UITableView, forIndexPath indexPath: IndexPath) -> RadiusTableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RadiusCell") as? RadiusTableViewCell ?? RadiusTableViewCell()
+        let cellModel = RadiusTableViewCellModel(value: self.place?.radius ?? Int32(100))
+        cell.configure(with: cellModel, andDelegate: self)
+        return cell
+    }
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
         switch section {
@@ -120,6 +130,8 @@ extension PlaceDetailsView: UITableViewDataSource {
             return L10n.PlaceDetails.name
         case 1:
             return L10n.PlaceDetails.address
+        case 2:
+            return L10n.PlaceDetails.radius
         default:
             return nil
         }
@@ -128,16 +140,33 @@ extension PlaceDetailsView: UITableViewDataSource {
 //MARK: - Cell Delegate
 extension PlaceDetailsView: TextInputCellDelegate {
 
-        func textFieldDidReturn(_ textField: UITextField) {
+    func textFieldDidReturn(_ textField: UITextField) {
 
-            if let text = textField.text, !text.isEmpty {
+        if let text = textField.text, !text.isEmpty {
 
-                self.place?.name = text
-                self.delegate?.didChangePlace()
-                NotificationCenter.default.post(name: .editPlace, object: self.place)
-            }
+            self.place?.name = text
+            self.delegate?.didChangePlace()
         }
     }
+}
+
+extension PlaceDetailsView: RadiusTableViewCellDelegate {
+
+    func didChangeSliderValue(to value: Int) {
+
+        guard let place = self.place else {
+            return
+        }
+
+        place.radius = Int32(value)
+
+        let viewModel = MapLocationViewModel(coordinate: place.coordinate, title: place.name, radius: place.radius)
+        self.mapLocationView.configure(with: viewModel)
+
+        self.delegate?.didChangePlace()
+    }
+}
+
 //MARK: -View Protocol
 extension PlaceDetailsView: ViewProtocol {
     func configureSubviews() {

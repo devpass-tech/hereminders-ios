@@ -8,7 +8,14 @@
 
 import UIKit
 
+protocol RadiusTableViewCellDelegate: AnyObject {
+
+    func didChangeSliderValue(to value: Int)
+}
+
 class RadiusTableViewCell: UITableViewCell {
+    
+    weak var delegate: RadiusTableViewCellDelegate?
 
     let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -48,11 +55,13 @@ class RadiusTableViewCell: UITableViewCell {
     @objc func sliderChanged(sender: UISlider) {
         let value = Int(sender.value)
         radiusLabel.text = String(value) + "m"
+        self.delegate?.didChangeSliderValue(to: value)
     }
     
-    func configure(with viewModel: RadiusTableViewCellModel) {
+    func configure(with viewModel: RadiusTableViewCellModel, andDelegate delegate: RadiusTableViewCellDelegate) {
         radiusSlider.value = Float(viewModel.value)
         radiusLabel.text = String(viewModel.value) + "m"
+        self.delegate = delegate
     }
 }
 

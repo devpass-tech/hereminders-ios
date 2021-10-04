@@ -12,7 +12,12 @@ final class PlaceDetailsViewController: UIViewController {
 
     let place: Place
     
-    let placeDetailsView = PlaceDetailsView()
+    lazy var placeDetailsView: PlaceDetailsView = {
+
+        let placeDetailsView = PlaceDetailsView()
+        placeDetailsView.delegate = self
+        return placeDetailsView
+    }()
 
     private let dataController: DataControllerType
     
@@ -58,7 +63,9 @@ final class PlaceDetailsViewController: UIViewController {
 }
 
 extension PlaceDetailsViewController: PlaceDetailsViewProtocol {
+
     func didChangePlace() {
         self.dataController.saveContext()
+        NotificationCenter.default.post(name: .editPlace, object: self.place)
     }
 }

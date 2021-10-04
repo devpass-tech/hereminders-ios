@@ -12,7 +12,7 @@ import RxSwift
 final class PlaceListViewModel {
 
     private let placeController: PlaceDataControllerType
-    private lazy var places: [Place] = self.placeController.allPlaces()
+    lazy var places: [Place] = self.placeController.allPlaces()
     lazy var placesSubject = PublishSubject<Void>()
 
     var placeCount: Int {
@@ -37,7 +37,8 @@ final class PlaceListViewModel {
         let place = self.placeController.addPlace(withName: result.name,
                                                   latitude: result.coordinate.latitude,
                                                   longitude: result.coordinate.longitude,
-                                                  address: result.address)
+                                                  address: result.address,
+                                                  radius: 100)
 
         self.places = self.placeController.allPlaces()
         self.placesSubject.onNext(Void())

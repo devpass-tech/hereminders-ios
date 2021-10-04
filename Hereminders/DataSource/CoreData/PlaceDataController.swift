@@ -14,7 +14,8 @@ protocol PlaceDataControllerType: AnyObject {
     func addPlace(withName name: String,
                   latitude: Double,
                   longitude: Double,
-                  address: String) -> Place
+                  address: String,
+                  radius: Int32) -> Place
     func removePlace(_ place: Place)
     func place(withLatitude latitude: Double,
                andLongitude longitude: Double) -> Place?
@@ -46,7 +47,7 @@ final class PlaceDataController: PlaceDataControllerType {
     }
 
     @discardableResult
-    func addPlace(withName name: String, latitude: Double, longitude: Double, address: String) -> Place {
+    func addPlace(withName name: String, latitude: Double, longitude: Double, address: String, radius: Int32 = 100) -> Place {
 
         let context = self.dataController.managedObjectContext
         var place: Place
@@ -63,6 +64,7 @@ final class PlaceDataController: PlaceDataControllerType {
             place.latitude = latitude
             place.longitude = longitude
             place.address = address
+            place.radius = radius
         }
 
         self.dataController.saveContext()
